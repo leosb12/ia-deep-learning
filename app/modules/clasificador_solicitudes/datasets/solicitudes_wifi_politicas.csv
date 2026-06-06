@@ -1,0 +1,421 @@
+texto,politicaId,nombrePolitica
+quiero contratar internet para mi casa,WIFI_INSTALACION,Instalacion de internet WiFi
+necesito instalar wifi en mi domicilio,WIFI_INSTALACION,Instalacion de internet WiFi
+me interesa poner internet nuevo en mi departamento,WIFI_INSTALACION,Instalacion de internet WiFi
+quiero saber como hacer instalar fibra en casa,WIFI_INSTALACION,Instalacion de internet WiFi
+necesito servicio de wifi por primera vez,WIFI_INSTALACION,Instalacion de internet WiFi
+quiero pedir una instalacion de internet,WIFI_INSTALACION,Instalacion de internet WiFi
+busco contratar wifi para mi negocio,WIFI_INSTALACION,Instalacion de internet WiFi
+me pueden instalar internet esta semana,WIFI_INSTALACION,Instalacion de internet WiFi
+quiero poner wifi en mi casa nueva,WIFI_INSTALACION,Instalacion de internet WiFi
+necesito internet para una oficina pequena,WIFI_INSTALACION,Instalacion de internet WiFi
+como solicito instalacion de wifi,WIFI_INSTALACION,Instalacion de internet WiFi
+quiero darme de alta con internet hogar,WIFI_INSTALACION,Instalacion de internet WiFi
+necesito que instalen router y servicio,WIFI_INSTALACION,Instalacion de internet WiFi
+me gustaria contratar internet residencial,WIFI_INSTALACION,Instalacion de internet WiFi
+quiero un plan nuevo con instalacion,WIFI_INSTALACION,Instalacion de internet WiFi
+quiero cambiar mi plan de internet,WIFI_CAMBIO_PLAN,Cambio de plan WiFi
+necesito subir a un plan mas grande,WIFI_CAMBIO_PLAN,Cambio de plan WiFi
+quiero bajar mi plan porque pago mucho,WIFI_CAMBIO_PLAN,Cambio de plan WiFi
+puedo modificar el paquete que tengo,WIFI_CAMBIO_PLAN,Cambio de plan WiFi
+quiero pasarme a otro plan de wifi,WIFI_CAMBIO_PLAN,Cambio de plan WiFi
+necesito cambiar la velocidad contratada,WIFI_CAMBIO_PLAN,Cambio de plan WiFi
+quiero actualizar mi plan mensual,WIFI_CAMBIO_PLAN,Cambio de plan WiFi
+me ofrecen otro plan para cambiarme,WIFI_CAMBIO_PLAN,Cambio de plan WiFi
+quisiera un plan mas economico,WIFI_CAMBIO_PLAN,Cambio de plan WiFi
+quiero aumentar megas en mi contrato,WIFI_CAMBIO_PLAN,Cambio de plan WiFi
+como hago para cambiar de paquete,WIFI_CAMBIO_PLAN,Cambio de plan WiFi
+mi plan actual ya no me sirve,WIFI_CAMBIO_PLAN,Cambio de plan WiFi
+deseo migrar a un plan familiar,WIFI_CAMBIO_PLAN,Cambio de plan WiFi
+quiero consultar opciones para cambiar plan,WIFI_CAMBIO_PLAN,Cambio de plan WiFi
+necesito un plan con mas dispositivos,WIFI_CAMBIO_PLAN,Cambio de plan WiFi
+quiero mejorar la velocidad del internet,WIFI_MEJORAR_VELOCIDAD,Mejora de velocidad WiFi
+necesito mas velocidad para videollamadas,WIFI_MEJORAR_VELOCIDAD,Mejora de velocidad WiFi
+mi wifi queda corto cuando uso netflix,WIFI_MEJORAR_VELOCIDAD,Mejora de velocidad WiFi
+quiero que mi internet sea mas rapido,WIFI_MEJORAR_VELOCIDAD,Mejora de velocidad WiFi
+necesito aumentar los megas de descarga,WIFI_MEJORAR_VELOCIDAD,Mejora de velocidad WiFi
+quiero mejorar la velocidad sin cambiar domicilio,WIFI_MEJORAR_VELOCIDAD,Mejora de velocidad WiFi
+se puede hacer mas rapido mi wifi,WIFI_MEJORAR_VELOCIDAD,Mejora de velocidad WiFi
+quiero mayor velocidad para jugar online,WIFI_MEJORAR_VELOCIDAD,Mejora de velocidad WiFi
+mi familia necesita mas ancho de banda,WIFI_MEJORAR_VELOCIDAD,Mejora de velocidad WiFi
+necesito upgrade de velocidad,WIFI_MEJORAR_VELOCIDAD,Mejora de velocidad WiFi
+quiero que carguen mas rapido las paginas,WIFI_MEJORAR_VELOCIDAD,Mejora de velocidad WiFi
+mi internet funciona pero quiero mas megas,WIFI_MEJORAR_VELOCIDAD,Mejora de velocidad WiFi
+quiero mejorar mi conexion actual,WIFI_MEJORAR_VELOCIDAD,Mejora de velocidad WiFi
+necesito mas velocidad para trabajar desde casa,WIFI_MEJORAR_VELOCIDAD,Mejora de velocidad WiFi
+quiero ampliar la velocidad contratada,WIFI_MEJORAR_VELOCIDAD,Mejora de velocidad WiFi
+mi internet no funciona,WIFI_INTERNET_CAIDO,Internet caido
+no tengo wifi desde la manana,WIFI_INTERNET_CAIDO,Internet caido
+se cayo el servicio de internet,WIFI_INTERNET_CAIDO,Internet caido
+estoy sin conexion en mi casa,WIFI_INTERNET_CAIDO,Internet caido
+no hay internet en ningun equipo,WIFI_INTERNET_CAIDO,Internet caido
+el wifi aparece pero no navega,WIFI_INTERNET_CAIDO,Internet caido
+mi servicio esta totalmente cortado,WIFI_INTERNET_CAIDO,Internet caido
+no puedo conectarme a internet,WIFI_INTERNET_CAIDO,Internet caido
+desde ayer no tengo senal de internet,WIFI_INTERNET_CAIDO,Internet caido
+el modem no da internet,WIFI_INTERNET_CAIDO,Internet caido
+no abre ninguna pagina con mi wifi,WIFI_INTERNET_CAIDO,Internet caido
+se fue el internet en toda la casa,WIFI_INTERNET_CAIDO,Internet caido
+mi red conecta pero sale sin internet,WIFI_INTERNET_CAIDO,Internet caido
+tengo el servicio caido,WIFI_INTERNET_CAIDO,Internet caido
+no funciona el internet para nada,WIFI_INTERNET_CAIDO,Internet caido
+mi internet esta muy lento,WIFI_INTERNET_LENTO,Internet lento
+el wifi se pone lento en la noche,WIFI_INTERNET_LENTO,Internet lento
+la conexion esta pesada y se corta,WIFI_INTERNET_LENTO,Internet lento
+todo carga demasiado lento,WIFI_INTERNET_LENTO,Internet lento
+mi internet anda lento y falla,WIFI_INTERNET_LENTO,Internet lento
+se demora mucho en cargar videos,WIFI_INTERNET_LENTO,Internet lento
+el wifi va lentisimo en mi celular,WIFI_INTERNET_LENTO,Internet lento
+la velocidad esta baja,WIFI_INTERNET_LENTO,Internet lento
+mi conexion se traba a cada rato,WIFI_INTERNET_LENTO,Internet lento
+internet lento para clases virtuales,WIFI_INTERNET_LENTO,Internet lento
+el servicio no esta caido pero va mal,WIFI_INTERNET_LENTO,Internet lento
+el internet esta inestable y lento,WIFI_INTERNET_LENTO,Internet lento
+me cuesta ver videos por la lentitud,WIFI_INTERNET_LENTO,Internet lento
+mi wifi baja mucho la velocidad,WIFI_INTERNET_LENTO,Internet lento
+tengo cortes pequenos y baja velocidad,WIFI_INTERNET_LENTO,Internet lento
+quiero cambiar la clave del wifi,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+necesito cambiar la contrasena de mi red,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+olvide la clave del wifi y quiero otra,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+como cambio el password del internet,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+quiero poner una clave nueva al router,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+necesito modificar la clave wifi,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+alguien sabe mi contrasena y quiero cambiarla,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+deseo actualizar la password de la red,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+quiero resetear la clave del wifi,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+me ayudan a cambiar mi contrasena wifi,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+quiero una clave mas segura para el wifi,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+necesito cambiar la llave de acceso,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+como hago otra clave para mi internet,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+quiero renovar la contrasena de wifi,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+mi vecino tiene mi clave quiero cambiarla,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+quiero cambiar el nombre de mi red,WIFI_CAMBIAR_NOMBRE_RED,Cambio de nombre de red WiFi
+necesito poner otro nombre al wifi,WIFI_CAMBIAR_NOMBRE_RED,Cambio de nombre de red WiFi
+como modifico el ssid del router,WIFI_CAMBIAR_NOMBRE_RED,Cambio de nombre de red WiFi
+quiero que mi wifi tenga otro nombre,WIFI_CAMBIAR_NOMBRE_RED,Cambio de nombre de red WiFi
+deseo renombrar la red de internet,WIFI_CAMBIAR_NOMBRE_RED,Cambio de nombre de red WiFi
+me ayudan a cambiar nombre de red,WIFI_CAMBIAR_NOMBRE_RED,Cambio de nombre de red WiFi
+quiero cambiar como aparece mi wifi,WIFI_CAMBIAR_NOMBRE_RED,Cambio de nombre de red WiFi
+el nombre del wifi esta mal escrito,WIFI_CAMBIAR_NOMBRE_RED,Cambio de nombre de red WiFi
+quiero personalizar el nombre de la senal,WIFI_CAMBIAR_NOMBRE_RED,Cambio de nombre de red WiFi
+necesito editar el nombre del modem,WIFI_CAMBIAR_NOMBRE_RED,Cambio de nombre de red WiFi
+quiero que la red ya no se llame igual,WIFI_CAMBIAR_NOMBRE_RED,Cambio de nombre de red WiFi
+pueden cambiar el nombre visible del wifi,WIFI_CAMBIAR_NOMBRE_RED,Cambio de nombre de red WiFi
+quiero poner el nombre de mi negocio al wifi,WIFI_CAMBIAR_NOMBRE_RED,Cambio de nombre de red WiFi
+cambiar ssid de mi internet,WIFI_CAMBIAR_NOMBRE_RED,Cambio de nombre de red WiFi
+necesito otro nombre para mi red hogar,WIFI_CAMBIAR_NOMBRE_RED,Cambio de nombre de red WiFi
+necesito que venga un tecnico,WIFI_VISITA_TECNICA,Visita tecnica
+quiero agendar una visita tecnica,WIFI_VISITA_TECNICA,Visita tecnica
+pueden mandar tecnico a revisar,WIFI_VISITA_TECNICA,Visita tecnica
+necesito revision en mi domicilio,WIFI_VISITA_TECNICA,Visita tecnica
+quiero solicitar soporte presencial,WIFI_VISITA_TECNICA,Visita tecnica
+manden un tecnico por favor,WIFI_VISITA_TECNICA,Visita tecnica
+necesito una visita para revisar el cable,WIFI_VISITA_TECNICA,Visita tecnica
+quiero que revisen la instalacion en casa,WIFI_VISITA_TECNICA,Visita tecnica
+puedo pedir visita de soporte,WIFI_VISITA_TECNICA,Visita tecnica
+necesito asistencia tecnica presencial,WIFI_VISITA_TECNICA,Visita tecnica
+quiero programar tecnico para manana,WIFI_VISITA_TECNICA,Visita tecnica
+el problema necesita que vengan a ver,WIFI_VISITA_TECNICA,Visita tecnica
+solicito visita tecnica para mi internet,WIFI_VISITA_TECNICA,Visita tecnica
+quiero coordinar revision del servicio,WIFI_VISITA_TECNICA,Visita tecnica
+necesito tecnico en mi direccion,WIFI_VISITA_TECNICA,Visita tecnica
+quiero reprogramar la visita tecnica,WIFI_REPROGRAMAR_VISITA,Reprogramacion de visita tecnica
+no podre estar para la visita,WIFI_REPROGRAMAR_VISITA,Reprogramacion de visita tecnica
+necesito cambiar la fecha del tecnico,WIFI_REPROGRAMAR_VISITA,Reprogramacion de visita tecnica
+pueden mover mi cita tecnica,WIFI_REPROGRAMAR_VISITA,Reprogramacion de visita tecnica
+quiero cambiar la hora de instalacion,WIFI_REPROGRAMAR_VISITA,Reprogramacion de visita tecnica
+no estare en casa cuando venga el tecnico,WIFI_REPROGRAMAR_VISITA,Reprogramacion de visita tecnica
+necesito pasar la visita para otro dia,WIFI_REPROGRAMAR_VISITA,Reprogramacion de visita tecnica
+quiero reagendar la visita pendiente,WIFI_REPROGRAMAR_VISITA,Reprogramacion de visita tecnica
+puedo cambiar mi turno tecnico,WIFI_REPROGRAMAR_VISITA,Reprogramacion de visita tecnica
+la cita de hoy necesito moverla,WIFI_REPROGRAMAR_VISITA,Reprogramacion de visita tecnica
+reprogramar tecnico para el viernes,WIFI_REPROGRAMAR_VISITA,Reprogramacion de visita tecnica
+necesito nueva fecha para la visita,WIFI_REPROGRAMAR_VISITA,Reprogramacion de visita tecnica
+quiero modificar agenda del tecnico,WIFI_REPROGRAMAR_VISITA,Reprogramacion de visita tecnica
+no puedo recibirlos hoy cambien la visita,WIFI_REPROGRAMAR_VISITA,Reprogramacion de visita tecnica
+quiero atrasar mi cita de soporte,WIFI_REPROGRAMAR_VISITA,Reprogramacion de visita tecnica
+quiero saber el estado de mi instalacion,WIFI_ESTADO_INSTALACION,Estado de instalacion
+cuando vienen a instalar mi internet,WIFI_ESTADO_INSTALACION,Estado de instalacion
+en que quedo mi solicitud de instalacion,WIFI_ESTADO_INSTALACION,Estado de instalacion
+quiero consultar mi instalacion pendiente,WIFI_ESTADO_INSTALACION,Estado de instalacion
+ya pedi internet y quiero saber avance,WIFI_ESTADO_INSTALACION,Estado de instalacion
+mi instalacion esta aprobada o no,WIFI_ESTADO_INSTALACION,Estado de instalacion
+necesito seguimiento de la instalacion,WIFI_ESTADO_INSTALACION,Estado de instalacion
+cuando llega el tecnico para instalar,WIFI_ESTADO_INSTALACION,Estado de instalacion
+quiero verificar fecha de instalacion,WIFI_ESTADO_INSTALACION,Estado de instalacion
+como va mi alta de internet,WIFI_ESTADO_INSTALACION,Estado de instalacion
+estado de mi pedido de wifi,WIFI_ESTADO_INSTALACION,Estado de instalacion
+quiero saber si ya programaron instalacion,WIFI_ESTADO_INSTALACION,Estado de instalacion
+mi solicitud nueva aun no avanza,WIFI_ESTADO_INSTALACION,Estado de instalacion
+consultar avance de internet contratado,WIFI_ESTADO_INSTALACION,Estado de instalacion
+cuando activan mi servicio nuevo,WIFI_ESTADO_INSTALACION,Estado de instalacion
+quiero trasladar mi internet a otra casa,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+me mude y necesito mover el servicio,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+quiero cambiar la direccion del wifi,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+necesito llevar mi internet a otro domicilio,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+pueden trasladar mi servicio por mudanza,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+quiero mover mi modem a otra casa,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+voy a cambiar de direccion y necesito internet,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+solicito traslado de linea de internet,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+quiero pasar mi wifi a mi nueva vivienda,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+necesito instalar el mismo servicio en otra zona,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+me cambio de departamento y quiero conservar wifi,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+quiero mover el contrato a otra direccion,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+traslado de internet por mudanza,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+necesito cambiar domicilio del servicio,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+llevar internet actual a nueva casa,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+quiero actualizar mis datos personales,WIFI_ACTUALIZAR_DATOS,Actualizacion de datos
+necesito cambiar mi numero de celular,WIFI_ACTUALIZAR_DATOS,Actualizacion de datos
+quiero corregir mi correo electronico,WIFI_ACTUALIZAR_DATOS,Actualizacion de datos
+mis datos estan mal en el sistema,WIFI_ACTUALIZAR_DATOS,Actualizacion de datos
+necesito actualizar direccion de contacto,WIFI_ACTUALIZAR_DATOS,Actualizacion de datos
+quiero modificar datos de facturacion,WIFI_ACTUALIZAR_DATOS,Actualizacion de datos
+cambiar telefono registrado en mi cuenta,WIFI_ACTUALIZAR_DATOS,Actualizacion de datos
+quiero poner otro email para avisos,WIFI_ACTUALIZAR_DATOS,Actualizacion de datos
+actualizar informacion del cliente,WIFI_ACTUALIZAR_DATOS,Actualizacion de datos
+mi apellido figura incorrecto,WIFI_ACTUALIZAR_DATOS,Actualizacion de datos
+necesito arreglar mis datos de contacto,WIFI_ACTUALIZAR_DATOS,Actualizacion de datos
+quiero editar la informacion de mi contrato,WIFI_ACTUALIZAR_DATOS,Actualizacion de datos
+cambie de telefono y quiero actualizarlo,WIFI_ACTUALIZAR_DATOS,Actualizacion de datos
+el correo de mi cuenta ya no sirve,WIFI_ACTUALIZAR_DATOS,Actualizacion de datos
+quiero renovar datos registrados,WIFI_ACTUALIZAR_DATOS,Actualizacion de datos
+quiero hacer cambio de titular,WIFI_CAMBIO_TITULAR,Cambio de titular
+necesito pasar el servicio a otra persona,WIFI_CAMBIO_TITULAR,Cambio de titular
+el internet debe quedar a nombre de mi esposa,WIFI_CAMBIO_TITULAR,Cambio de titular
+quiero cambiar el nombre del contrato,WIFI_CAMBIO_TITULAR,Cambio de titular
+como transfiero la titularidad del wifi,WIFI_CAMBIO_TITULAR,Cambio de titular
+necesito que mi hijo sea titular,WIFI_CAMBIO_TITULAR,Cambio de titular
+quiero cambiar propietario del servicio,WIFI_CAMBIO_TITULAR,Cambio de titular
+pasar cuenta de internet a otro nombre,WIFI_CAMBIO_TITULAR,Cambio de titular
+solicito cambio de titularidad,WIFI_CAMBIO_TITULAR,Cambio de titular
+el contrato ya no debe estar a mi nombre,WIFI_CAMBIO_TITULAR,Cambio de titular
+quiero poner el servicio a nombre de mi empresa,WIFI_CAMBIO_TITULAR,Cambio de titular
+necesito transferencia de titular de internet,WIFI_CAMBIO_TITULAR,Cambio de titular
+cambiar responsable del contrato wifi,WIFI_CAMBIO_TITULAR,Cambio de titular
+quiero que otra persona figure como titular,WIFI_CAMBIO_TITULAR,Cambio de titular
+mi papa quiere pasarme el internet,WIFI_CAMBIO_TITULAR,Cambio de titular
+quiero consultar mi factura,WIFI_CONSULTAR_FACTURA,Consulta de factura
+necesito saber cuanto debo pagar,WIFI_CONSULTAR_FACTURA,Consulta de factura
+cuanto es mi factura de este mes,WIFI_CONSULTAR_FACTURA,Consulta de factura
+quiero ver el monto pendiente,WIFI_CONSULTAR_FACTURA,Consulta de factura
+me dicen el saldo de mi cuenta,WIFI_CONSULTAR_FACTURA,Consulta de factura
+necesito detalle de mi factura,WIFI_CONSULTAR_FACTURA,Consulta de factura
+quiero saber fecha de vencimiento,WIFI_CONSULTAR_FACTURA,Consulta de factura
+consultar deuda de internet,WIFI_CONSULTAR_FACTURA,Consulta de factura
+quiero revisar mi estado de cuenta,WIFI_CONSULTAR_FACTURA,Consulta de factura
+no se cuanto tengo que pagar,WIFI_CONSULTAR_FACTURA,Consulta de factura
+necesito informacion de mi recibo,WIFI_CONSULTAR_FACTURA,Consulta de factura
+ver factura mensual de wifi,WIFI_CONSULTAR_FACTURA,Consulta de factura
+quiero conocer el importe facturado,WIFI_CONSULTAR_FACTURA,Consulta de factura
+cuando vence mi pago de internet,WIFI_CONSULTAR_FACTURA,Consulta de factura
+me pueden mostrar mi factura actual,WIFI_CONSULTAR_FACTURA,Consulta de factura
+me cobraron de mas,WIFI_RECLAMO_COBRO,Reclamo de cobro
+mi factura vino con un monto incorrecto,WIFI_RECLAMO_COBRO,Reclamo de cobro
+quiero reclamar un cobro indebido,WIFI_RECLAMO_COBRO,Reclamo de cobro
+me estan cobrando algo que no corresponde,WIFI_RECLAMO_COBRO,Reclamo de cobro
+el recibo tiene un cargo raro,WIFI_RECLAMO_COBRO,Reclamo de cobro
+quiero que revisen mi cobro,WIFI_RECLAMO_COBRO,Reclamo de cobro
+pague menos antes y ahora subio sin aviso,WIFI_RECLAMO_COBRO,Reclamo de cobro
+tengo reclamo por factura inflada,WIFI_RECLAMO_COBRO,Reclamo de cobro
+no reconozco este cargo del internet,WIFI_RECLAMO_COBRO,Reclamo de cobro
+me cobraron doble el servicio,WIFI_RECLAMO_COBRO,Reclamo de cobro
+quiero reclamar porque el monto esta mal,WIFI_RECLAMO_COBRO,Reclamo de cobro
+mi plan dice un precio y factura otro,WIFI_RECLAMO_COBRO,Reclamo de cobro
+hay un error en el cobro mensual,WIFI_RECLAMO_COBRO,Reclamo de cobro
+necesito disputa por cobro de internet,WIFI_RECLAMO_COBRO,Reclamo de cobro
+me llego deuda que ya no corresponde,WIFI_RECLAMO_COBRO,Reclamo de cobro
+necesito duplicado de factura,WIFI_DUPLICADO_FACTURA,Duplicado de factura
+quiero una copia de mi recibo,WIFI_DUPLICADO_FACTURA,Duplicado de factura
+me pueden reenviar la factura,WIFI_DUPLICADO_FACTURA,Duplicado de factura
+perdi mi factura y necesito otra,WIFI_DUPLICADO_FACTURA,Duplicado de factura
+quiero descargar duplicado del recibo,WIFI_DUPLICADO_FACTURA,Duplicado de factura
+necesito copia de la factura del mes,WIFI_DUPLICADO_FACTURA,Duplicado de factura
+manden nuevamente mi factura al correo,WIFI_DUPLICADO_FACTURA,Duplicado de factura
+quiero imprimir mi factura de internet,WIFI_DUPLICADO_FACTURA,Duplicado de factura
+solicito duplicado de boleta,WIFI_DUPLICADO_FACTURA,Duplicado de factura
+no encuentro mi recibo de pago,WIFI_DUPLICADO_FACTURA,Duplicado de factura
+necesito factura en pdf otra vez,WIFI_DUPLICADO_FACTURA,Duplicado de factura
+reenviar recibo de internet,WIFI_DUPLICADO_FACTURA,Duplicado de factura
+quiero obtener copia de mi factura,WIFI_DUPLICADO_FACTURA,Duplicado de factura
+me falta el comprobante de facturacion,WIFI_DUPLICADO_FACTURA,Duplicado de factura
+envieme duplicado de factura por favor,WIFI_DUPLICADO_FACTURA,Duplicado de factura
+ya pague y quiero registrar el pago,WIFI_REGISTRAR_PAGO,Registro de pago
+necesito subir mi comprobante,WIFI_REGISTRAR_PAGO,Registro de pago
+quiero informar que ya cancele,WIFI_REGISTRAR_PAGO,Registro de pago
+acabo de pagar el internet,WIFI_REGISTRAR_PAGO,Registro de pago
+donde adjunto el comprobante de pago,WIFI_REGISTRAR_PAGO,Registro de pago
+quiero reportar transferencia realizada,WIFI_REGISTRAR_PAGO,Registro de pago
+ya hice el deposito del servicio,WIFI_REGISTRAR_PAGO,Registro de pago
+necesito registrar pago para que figure,WIFI_REGISTRAR_PAGO,Registro de pago
+subir captura del pago de wifi,WIFI_REGISTRAR_PAGO,Registro de pago
+quiero confirmar que pague la factura,WIFI_REGISTRAR_PAGO,Registro de pago
+mande pago por banco quiero avisar,WIFI_REGISTRAR_PAGO,Registro de pago
+registren mi pago por favor,WIFI_REGISTRAR_PAGO,Registro de pago
+ya pague la deuda de internet,WIFI_REGISTRAR_PAGO,Registro de pago
+tengo comprobante para cargar,WIFI_REGISTRAR_PAGO,Registro de pago
+quiero validar mi pago realizado,WIFI_REGISTRAR_PAGO,Registro de pago
+quiero reconectar mi internet,WIFI_RECONEXION,Reconexion de servicio
+ya pague para que activen el servicio,WIFI_RECONEXION,Reconexion de servicio
+necesito que me devuelvan la conexion,WIFI_RECONEXION,Reconexion de servicio
+mi servicio esta cortado quiero reactivar,WIFI_RECONEXION,Reconexion de servicio
+solicito reconexion del wifi,WIFI_RECONEXION,Reconexion de servicio
+quiero que habiliten internet otra vez,WIFI_RECONEXION,Reconexion de servicio
+pague la deuda y sigo sin servicio,WIFI_RECONEXION,Reconexion de servicio
+necesito reactivar mi cuenta de internet,WIFI_RECONEXION,Reconexion de servicio
+cuando me reconectan el servicio,WIFI_RECONEXION,Reconexion de servicio
+quiero levantar el corte del internet,WIFI_RECONEXION,Reconexion de servicio
+ya regularice el pago reconecten,WIFI_RECONEXION,Reconexion de servicio
+mi internet fue suspendido y quiero volver,WIFI_RECONEXION,Reconexion de servicio
+reactivar wifi despues de corte,WIFI_RECONEXION,Reconexion de servicio
+necesito recuperar el servicio cortado,WIFI_RECONEXION,Reconexion de servicio
+solicito activacion despues de pago,WIFI_RECONEXION,Reconexion de servicio
+quiero dar de baja el internet,WIFI_BAJA_SERVICIO,Baja de servicio WiFi
+necesito cancelar mi servicio,WIFI_BAJA_SERVICIO,Baja de servicio WiFi
+ya no quiero continuar con wifi,WIFI_BAJA_SERVICIO,Baja de servicio WiFi
+quiero terminar mi contrato de internet,WIFI_BAJA_SERVICIO,Baja de servicio WiFi
+solicito baja del servicio,WIFI_BAJA_SERVICIO,Baja de servicio WiFi
+quiero cortar definitivamente el internet,WIFI_BAJA_SERVICIO,Baja de servicio WiFi
+necesito anular mi plan de wifi,WIFI_BAJA_SERVICIO,Baja de servicio WiFi
+me voy de la ciudad y quiero cancelar,WIFI_BAJA_SERVICIO,Baja de servicio WiFi
+quiero cerrar mi cuenta de internet,WIFI_BAJA_SERVICIO,Baja de servicio WiFi
+dar de baja mi contrato,WIFI_BAJA_SERVICIO,Baja de servicio WiFi
+no usare mas el servicio,WIFI_BAJA_SERVICIO,Baja de servicio WiFi
+quiero cancelar el plan mensual,WIFI_BAJA_SERVICIO,Baja de servicio WiFi
+necesito terminar el servicio por mudanza,WIFI_BAJA_SERVICIO,Baja de servicio WiFi
+quiero desactivar internet de mi casa,WIFI_BAJA_SERVICIO,Baja de servicio WiFi
+solicito retiro del servicio wifi,WIFI_BAJA_SERVICIO,Baja de servicio WiFi
+mi router tiene una luz roja,WIFI_SOPORTE_MODEM_ROUTER,Soporte de modem o router
+el modem parpadea raro,WIFI_SOPORTE_MODEM_ROUTER,Soporte de modem o router
+mi router no enciende,WIFI_SOPORTE_MODEM_ROUTER,Soporte de modem o router
+el equipo esta caliente y falla,WIFI_SOPORTE_MODEM_ROUTER,Soporte de modem o router
+necesito ayuda con el modem,WIFI_SOPORTE_MODEM_ROUTER,Soporte de modem o router
+las luces del router estan apagadas,WIFI_SOPORTE_MODEM_ROUTER,Soporte de modem o router
+mi modem hace ruido y no conecta,WIFI_SOPORTE_MODEM_ROUTER,Soporte de modem o router
+el router se reinicia solo,WIFI_SOPORTE_MODEM_ROUTER,Soporte de modem o router
+tengo problema con el aparato del wifi,WIFI_SOPORTE_MODEM_ROUTER,Soporte de modem o router
+el modem esta bloqueado,WIFI_SOPORTE_MODEM_ROUTER,Soporte de modem o router
+quiero soporte para configurar router,WIFI_SOPORTE_MODEM_ROUTER,Soporte de modem o router
+mi equipo no reparte senal wifi,WIFI_SOPORTE_MODEM_ROUTER,Soporte de modem o router
+el router prende pero no da red,WIFI_SOPORTE_MODEM_ROUTER,Soporte de modem o router
+la luz los esta roja en el modem,WIFI_SOPORTE_MODEM_ROUTER,Soporte de modem o router
+necesito revisar el modem de casa,WIFI_SOPORTE_MODEM_ROUTER,Soporte de modem o router
+quiero cambiar mi equipo router,WIFI_CAMBIO_EQUIPO,Cambio de equipo WiFi
+necesito reemplazar el modem viejo,WIFI_CAMBIO_EQUIPO,Cambio de equipo WiFi
+mi router esta danado quiero otro,WIFI_CAMBIO_EQUIPO,Cambio de equipo WiFi
+pueden cambiarme el modem,WIFI_CAMBIO_EQUIPO,Cambio de equipo WiFi
+quiero solicitar cambio de equipo,WIFI_CAMBIO_EQUIPO,Cambio de equipo WiFi
+el aparato ya no sirve necesito reemplazo,WIFI_CAMBIO_EQUIPO,Cambio de equipo WiFi
+quiero un router mas nuevo,WIFI_CAMBIO_EQUIPO,Cambio de equipo WiFi
+necesito cambio del dispositivo wifi,WIFI_CAMBIO_EQUIPO,Cambio de equipo WiFi
+mi modem se quemo quiero cambiarlo,WIFI_CAMBIO_EQUIPO,Cambio de equipo WiFi
+solicito renovacion de equipo,WIFI_CAMBIO_EQUIPO,Cambio de equipo WiFi
+quiero que me den otro router,WIFI_CAMBIO_EQUIPO,Cambio de equipo WiFi
+el modem actual esta muy antiguo,WIFI_CAMBIO_EQUIPO,Cambio de equipo WiFi
+cambiar equipo por falla constante,WIFI_CAMBIO_EQUIPO,Cambio de equipo WiFi
+necesito reemplazo de router por garantia,WIFI_CAMBIO_EQUIPO,Cambio de equipo WiFi
+quiero cambiar el modem instalado,WIFI_CAMBIO_EQUIPO,Cambio de equipo WiFi
+quiero contratar internet,WIFI_INSTALACION,Instalacion de internet WiFi
+contratar wifi para casa,WIFI_INSTALACION,Instalacion de internet WiFi
+solicito nuevo servicio de internet,WIFI_INSTALACION,Instalacion de internet WiFi
+alta de internet para mi hogar,WIFI_INSTALACION,Instalacion de internet WiFi
+instalar internet nuevo en domicilio,WIFI_INSTALACION,Instalacion de internet WiFi
+quiero cambiar de plan,WIFI_CAMBIO_PLAN,Cambio de plan WiFi
+cambiar mi paquete de wifi,WIFI_CAMBIO_PLAN,Cambio de plan WiFi
+necesito otro plan de internet,WIFI_CAMBIO_PLAN,Cambio de plan WiFi
+quiero un plan diferente al actual,WIFI_CAMBIO_PLAN,Cambio de plan WiFi
+modificar plan contratado,WIFI_CAMBIO_PLAN,Cambio de plan WiFi
+quiero mas megas,WIFI_MEJORAR_VELOCIDAD,Mejora de velocidad WiFi
+aumentar velocidad de internet,WIFI_MEJORAR_VELOCIDAD,Mejora de velocidad WiFi
+necesito internet mas veloz,WIFI_MEJORAR_VELOCIDAD,Mejora de velocidad WiFi
+subir velocidad del wifi,WIFI_MEJORAR_VELOCIDAD,Mejora de velocidad WiFi
+mejorar velocidad contratada,WIFI_MEJORAR_VELOCIDAD,Mejora de velocidad WiFi
+no tengo internet,WIFI_INTERNET_CAIDO,Internet caido
+no tengo wifi,WIFI_INTERNET_CAIDO,Internet caido
+internet sin servicio,WIFI_INTERNET_CAIDO,Internet caido
+mi wifi no da conexion,WIFI_INTERNET_CAIDO,Internet caido
+estoy sin internet ahora,WIFI_INTERNET_CAIDO,Internet caido
+mi internet esta lento,WIFI_INTERNET_LENTO,Internet lento
+wifi lento en casa,WIFI_INTERNET_LENTO,Internet lento
+internet muy lento y se corta,WIFI_INTERNET_LENTO,Internet lento
+mi conexion anda lenta,WIFI_INTERNET_LENTO,Internet lento
+se pone lento el internet,WIFI_INTERNET_LENTO,Internet lento
+quiero cambiar la contrasena,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+cambiar password wifi,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+necesito nueva contrasena del wifi,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+cambio de clave de internet,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+poner otra contrasena a la red,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+cambiar nombre del wifi,WIFI_CAMBIAR_NOMBRE_RED,Cambio de nombre de red WiFi
+renombrar mi red wifi,WIFI_CAMBIAR_NOMBRE_RED,Cambio de nombre de red WiFi
+poner otro nombre a la red,WIFI_CAMBIAR_NOMBRE_RED,Cambio de nombre de red WiFi
+modificar nombre del internet,WIFI_CAMBIAR_NOMBRE_RED,Cambio de nombre de red WiFi
+cambiar ssid wifi hogar,WIFI_CAMBIAR_NOMBRE_RED,Cambio de nombre de red WiFi
+necesito que venga un tecnico,WIFI_VISITA_TECNICA,Visita tecnica
+quiero visita tecnica,WIFI_VISITA_TECNICA,Visita tecnica
+mandar tecnico a mi casa,WIFI_VISITA_TECNICA,Visita tecnica
+agendar revision tecnica,WIFI_VISITA_TECNICA,Visita tecnica
+solicitar tecnico presencial,WIFI_VISITA_TECNICA,Visita tecnica
+reprogramar visita tecnica,WIFI_REPROGRAMAR_VISITA,Reprogramacion de visita tecnica
+cambiar cita con tecnico,WIFI_REPROGRAMAR_VISITA,Reprogramacion de visita tecnica
+mover fecha de visita,WIFI_REPROGRAMAR_VISITA,Reprogramacion de visita tecnica
+pasar visita para otro horario,WIFI_REPROGRAMAR_VISITA,Reprogramacion de visita tecnica
+no puedo recibir al tecnico hoy,WIFI_REPROGRAMAR_VISITA,Reprogramacion de visita tecnica
+estado de instalacion,WIFI_ESTADO_INSTALACION,Estado de instalacion
+consultar instalacion pendiente,WIFI_ESTADO_INSTALACION,Estado de instalacion
+cuando instalan mi internet,WIFI_ESTADO_INSTALACION,Estado de instalacion
+seguimiento de instalacion wifi,WIFI_ESTADO_INSTALACION,Estado de instalacion
+ver avance de instalacion,WIFI_ESTADO_INSTALACION,Estado de instalacion
+quiero mover mi internet a otra casa,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+trasladar internet a nueva direccion,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+mudar servicio de wifi,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+cambiar domicilio del internet,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+llevar wifi a otra casa,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+actualizar mis datos,WIFI_ACTUALIZAR_DATOS,Actualizacion de datos
+cambiar telefono de contacto,WIFI_ACTUALIZAR_DATOS,Actualizacion de datos
+modificar correo registrado,WIFI_ACTUALIZAR_DATOS,Actualizacion de datos
+corregir datos personales,WIFI_ACTUALIZAR_DATOS,Actualizacion de datos
+editar informacion de cliente,WIFI_ACTUALIZAR_DATOS,Actualizacion de datos
+cambio de titular,WIFI_CAMBIO_TITULAR,Cambio de titular
+cambiar titular del internet,WIFI_CAMBIO_TITULAR,Cambio de titular
+poner servicio a nombre de otra persona,WIFI_CAMBIO_TITULAR,Cambio de titular
+pasar contrato a otro titular,WIFI_CAMBIO_TITULAR,Cambio de titular
+transferir titularidad wifi,WIFI_CAMBIO_TITULAR,Cambio de titular
+consultar factura,WIFI_CONSULTAR_FACTURA,Consulta de factura
+cuanto debo pagar,WIFI_CONSULTAR_FACTURA,Consulta de factura
+ver mi factura de internet,WIFI_CONSULTAR_FACTURA,Consulta de factura
+saldo pendiente de wifi,WIFI_CONSULTAR_FACTURA,Consulta de factura
+monto de factura actual,WIFI_CONSULTAR_FACTURA,Consulta de factura
+me cobraron de mas,WIFI_RECLAMO_COBRO,Reclamo de cobro
+reclamar cobro incorrecto,WIFI_RECLAMO_COBRO,Reclamo de cobro
+factura con monto equivocado,WIFI_RECLAMO_COBRO,Reclamo de cobro
+no reconozco el cobro,WIFI_RECLAMO_COBRO,Reclamo de cobro
+cobro indebido de internet,WIFI_RECLAMO_COBRO,Reclamo de cobro
+duplicado de factura,WIFI_DUPLICADO_FACTURA,Duplicado de factura
+copia de factura internet,WIFI_DUPLICADO_FACTURA,Duplicado de factura
+reenviar factura por correo,WIFI_DUPLICADO_FACTURA,Duplicado de factura
+necesito recibo duplicado,WIFI_DUPLICADO_FACTURA,Duplicado de factura
+descargar factura otra vez,WIFI_DUPLICADO_FACTURA,Duplicado de factura
+ya pague y quiero subir el comprobante,WIFI_REGISTRAR_PAGO,Registro de pago
+registrar pago realizado,WIFI_REGISTRAR_PAGO,Registro de pago
+subir comprobante de pago,WIFI_REGISTRAR_PAGO,Registro de pago
+reportar pago de internet,WIFI_REGISTRAR_PAGO,Registro de pago
+informar que ya pague,WIFI_REGISTRAR_PAGO,Registro de pago
+reconexion de internet,WIFI_RECONEXION,Reconexion de servicio
+reactivar servicio cortado,WIFI_RECONEXION,Reconexion de servicio
+ya pague reconecten internet,WIFI_RECONEXION,Reconexion de servicio
+habilitar wifi nuevamente,WIFI_RECONEXION,Reconexion de servicio
+levantar corte del servicio,WIFI_RECONEXION,Reconexion de servicio
+quiero dar de baja el servicio,WIFI_BAJA_SERVICIO,Baja de servicio WiFi
+cancelar internet,WIFI_BAJA_SERVICIO,Baja de servicio WiFi
+baja de wifi hogar,WIFI_BAJA_SERVICIO,Baja de servicio WiFi
+terminar contrato de internet,WIFI_BAJA_SERVICIO,Baja de servicio WiFi
+anular servicio de wifi,WIFI_BAJA_SERVICIO,Baja de servicio WiFi
+mi router tiene una luz roja,WIFI_SOPORTE_MODEM_ROUTER,Soporte de modem o router
+problema con el modem,WIFI_SOPORTE_MODEM_ROUTER,Soporte de modem o router
+router con luces rojas,WIFI_SOPORTE_MODEM_ROUTER,Soporte de modem o router
+modem no reparte wifi,WIFI_SOPORTE_MODEM_ROUTER,Soporte de modem o router
+soporte para router,WIFI_SOPORTE_MODEM_ROUTER,Soporte de modem o router
+cambio de equipo wifi,WIFI_CAMBIO_EQUIPO,Cambio de equipo WiFi
+cambiar router danado,WIFI_CAMBIO_EQUIPO,Cambio de equipo WiFi
+reemplazar modem viejo,WIFI_CAMBIO_EQUIPO,Cambio de equipo WiFi
+solicitar otro equipo,WIFI_CAMBIO_EQUIPO,Cambio de equipo WiFi
+renovar router instalado,WIFI_CAMBIO_EQUIPO,Cambio de equipo WiFi

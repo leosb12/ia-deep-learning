@@ -1,0 +1,116 @@
+texto,politicaId,nombrePolitica
+mi internet esta lentisimo desde anoche,WIFI_INTERNET_LENTO,Reportar internet lento
+el wifi se pone lento cuando todos se conectan,WIFI_INTERNET_LENTO,Reportar internet lento
+no carga ni youtube con mi internet,WIFI_INTERNET_LENTO,Reportar internet lento
+la senial va y viene y navego muy despacio,WIFI_INTERNET_LENTO,Reportar internet lento
+mi internt esta demasiado lento porfa revisen,WIFI_INTERNET_LENTO,Reportar internet lento
+quiero contratar internet para mi casa nueva,WIFI_INSTALACION,Instalacion de internet WiFi
+necesito poner wifi en mi departamento lo antes posible,WIFI_INSTALACION,Instalacion de internet WiFi
+busco alta de servicio de internet hogar,WIFI_INSTALACION,Instalacion de internet WiFi
+me mude y necesito instalacion de fibra,WIFI_INSTALACION,Instalacion de internet WiFi
+quiero wifi nuevo para una tienda pequena,WIFI_INSTALACION,Instalacion de internet WiFi
+no tengo wifi desde ayer en la tarde,WIFI_INTERNET_CAIDO,Reportar internet caido
+se fue el internet y no vuelve,WIFI_INTERNET_CAIDO,Reportar internet caido
+la red aparece pero no hay conexion,WIFI_INTERNET_CAIDO,Reportar internet caido
+estoy sin servicio hace horas,WIFI_INTERNET_CAIDO,Reportar internet caido
+mi internet murio despues de la lluvia,WIFI_INTERNET_CAIDO,Reportar internet caido
+quiero cambiar la contrasena del wifi,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+necesito una clave nueva para mi red,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+olvide la clave del router y quiero cambiarla,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+pueden ayudarme a poner otra password,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+quiero actualizar mi clave porque la comparti,WIFI_CAMBIAR_PASSWORD,Cambio de contrasena WiFi
+me cobraron de mas este mes,WIFI_RECLAMO_COBRO,Reclamo por cobro
+mi factura tiene un monto que no corresponde,WIFI_RECLAMO_COBRO,Reclamo por cobro
+aparece un cargo raro en la boleta,WIFI_RECLAMO_COBRO,Reclamo por cobro
+quiero reclamar porque pague otro precio,WIFI_RECLAMO_COBRO,Reclamo por cobro
+el cobro vino duplicado o inflado,WIFI_RECLAMO_COBRO,Reclamo por cobro
+quiero ver mi factura de este mes,FACTURACION_CONSULTA,Consulta de factura
+necesito saber cuanto debo pagar,FACTURACION_CONSULTA,Consulta de factura
+mandenme el detalle de la boleta por favor,FACTURACION_CONSULTA,Consulta de factura
+no encuentro mi factura pendiente,FACTURACION_CONSULTA,Consulta de factura
+quiero consultar vencimiento y monto,FACTURACION_CONSULTA,Consulta de factura
+ya pague y quiero registrar mi comprobante,PAGOS_REGISTRO,Registro de pago
+necesito subir el recibo de transferencia,PAGOS_REGISTRO,Registro de pago
+mande el pago por banco como lo informo,PAGOS_REGISTRO,Registro de pago
+quiero adjuntar comprobante de deposito,PAGOS_REGISTRO,Registro de pago
+pague ayer pero aun figura deuda,PAGOS_REGISTRO,Registro de pago
+quiero cancelar el servicio desde fin de mes,CANCELACION_SERVICIO,Cancelacion de servicio
+ya no usare el plan y deseo darlo de baja,CANCELACION_SERVICIO,Cancelacion de servicio
+necesito terminar mi contrato,CANCELACION_SERVICIO,Cancelacion de servicio
+quiero cortar el servicio definitivamente,CANCELACION_SERVICIO,Cancelacion de servicio
+solicito baja porque me estoy mudando,CANCELACION_SERVICIO,Cancelacion de servicio
+mi router tiene una luz roja,SOPORTE_ROUTER,Soporte tecnico de router
+el modem parpadea y no se conecta,SOPORTE_ROUTER,Soporte tecnico de router
+necesito ayuda con el equipo instalado,SOPORTE_ROUTER,Soporte tecnico de router
+el aparato se reinicia todo el rato,SOPORTE_ROUTER,Soporte tecnico de router
+creo que mi ruter esta fallando,SOPORTE_ROUTER,Soporte tecnico de router
+quiero agendar una visita tecnica,VISITA_TECNICA,Visita tecnica
+necesito que venga un tecnico a revisar,VISITA_TECNICA,Visita tecnica
+pueden mandar personal a mi domicilio,VISITA_TECNICA,Visita tecnica
+solicito inspeccion tecnica en casa,VISITA_TECNICA,Visita tecnica
+quiero reprogramar al tecnico para manana,VISITA_TECNICA,Visita tecnica
+necesito actualizar mi telefono y correo,ACTUALIZACION_DATOS,Actualizacion de datos
+quiero cambiar mis datos personales,ACTUALIZACION_DATOS,Actualizacion de datos
+mi direccion registrada ya no es correcta,ACTUALIZACION_DATOS,Actualizacion de datos
+actualicen mi numero de contacto,ACTUALIZACION_DATOS,Actualizacion de datos
+tengo otro email para notificaciones,ACTUALIZACION_DATOS,Actualizacion de datos
+quiero mover mi internet a otra direccion,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+me cambio de casa y necesito traslado,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+pasen el servicio a mi nuevo domicilio,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+necesito trasladar la linea de internet,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+voy a mudarme y quiero conservar mi wifi,WIFI_TRASLADO_SERVICIO,Traslado de servicio WiFi
+quiero presentar un reclamo formal,RECLAMOS_GENERALES,Reclamo general
+nadie resolvio mi caso y quiero reclamar,RECLAMOS_GENERALES,Reclamo general
+tengo una queja por mala atencion,RECLAMOS_GENERALES,Reclamo general
+quiero dejar constancia de un problema,RECLAMOS_GENERALES,Reclamo general
+mi solicitud anterior no fue atendida,RECLAMOS_GENERALES,Reclamo general
+necesito certificado de trabajo,DOCUMENTOS_CERTIFICADO,Emision de certificado
+quiero solicitar una constancia laboral,DOCUMENTOS_CERTIFICADO,Emision de certificado
+me piden un documento oficial de la empresa,DOCUMENTOS_CERTIFICADO,Emision de certificado
+necesito una copia de mi certificado,DOCUMENTOS_CERTIFICADO,Emision de certificado
+pueden emitir una certificacion para mi tramite,DOCUMENTOS_CERTIFICADO,Emision de certificado
+quiero pedir vacaciones para julio,RRHH_VACACIONES,Solicitud de vacaciones
+necesito registrar mis dias libres,RRHH_VACACIONES,Solicitud de vacaciones
+solicito permiso de vacaciones pendientes,RRHH_VACACIONES,Solicitud de vacaciones
+quiero aprobar mis vacaciones con mi jefe,RRHH_VACACIONES,Solicitud de vacaciones
+necesito ausentarme una semana del trabajo,RRHH_VACACIONES,Solicitud de vacaciones
+quiero denunciar un accidente laboral,INCIDENTES_REPORTE,Reporte de incidente
+hubo un incidente en la oficina,INCIDENTES_REPORTE,Reporte de incidente
+necesito reportar una falla de seguridad,INCIDENTES_REPORTE,Reporte de incidente
+ocurrio un problema y debo levantar reporte,INCIDENTES_REPORTE,Reporte de incidente
+quiero informar un evento grave,INCIDENTES_REPORTE,Reporte de incidente
+necesito aprobacion para comprar materiales,APROBACIONES_SOLICITUD,Solicitud de aprobacion
+quiero que autoricen mi requerimiento,APROBACIONES_SOLICITUD,Solicitud de aprobacion
+solicito visto bueno para continuar,APROBACIONES_SOLICITUD,Solicitud de aprobacion
+mi tramite necesita aprobacion del area,APROBACIONES_SOLICITUD,Solicitud de aprobacion
+envio solicitud para autorizacion interna,APROBACIONES_SOLICITUD,Solicitud de aprobacion
+quiero solicitar un credito personal,FINANZAS_CREDITO,Solicitud de credito
+necesito prestamo para mi negocio,FINANZAS_CREDITO,Solicitud de credito
+como aplico a un financiamiento,FINANZAS_CREDITO,Solicitud de credito
+quiero evaluar un credito de consumo,FINANZAS_CREDITO,Solicitud de credito
+busco informacion para sacar prestamo,FINANZAS_CREDITO,Solicitud de credito
+quiero reportar un siniestro del seguro,SEGUROS_SINIESTRO,Reporte de siniestro
+tuve un choque y necesito activar seguro,SEGUROS_SINIESTRO,Reporte de siniestro
+mi casa sufrio dano cubierto por la poliza,SEGUROS_SINIESTRO,Reporte de siniestro
+necesito declarar evento para mi seguro,SEGUROS_SINIESTRO,Reporte de siniestro
+quiero usar mi cobertura por accidente,SEGUROS_SINIESTRO,Reporte de siniestro
+necesito agendar consulta medica,SALUD_CITA_MEDICA,Agendamiento de cita medica
+quiero sacar turno con doctor,SALUD_CITA_MEDICA,Agendamiento de cita medica
+busco hora para pediatria esta semana,SALUD_CITA_MEDICA,Agendamiento de cita medica
+necesito cita en el centro de salud,SALUD_CITA_MEDICA,Agendamiento de cita medica
+quiero reservar atencion medica,SALUD_CITA_MEDICA,Agendamiento de cita medica
+quiero inscribirme a una materia,EDUCACION_INSCRIPCION,Inscripcion academica
+necesito registrar asignaturas del semestre,EDUCACION_INSCRIPCION,Inscripcion academica
+como hago mi matricula de clases,EDUCACION_INSCRIPCION,Inscripcion academica
+quiero tomar una materia adicional,EDUCACION_INSCRIPCION,Inscripcion academica
+necesito completar inscripcion universitaria,EDUCACION_INSCRIPCION,Inscripcion academica
+quiero hacer seguimiento a mi instalacion,TRAMITES_SEGUIMIENTO,Seguimiento de tramite
+necesito saber como va mi solicitud,TRAMITES_SEGUIMIENTO,Seguimiento de tramite
+en que estado esta mi tramite,TRAMITES_SEGUIMIENTO,Seguimiento de tramite
+quiero consultar avance del caso,TRAMITES_SEGUIMIENTO,Seguimiento de tramite
+me pueden decir si ya aprobaron mi solicitud,TRAMITES_SEGUIMIENTO,Seguimiento de tramite
+necesito soporte con mi computadora,SOPORTE_TECNICO_GENERAL,Soporte tecnico general
+mi sistema no abre y aparece error,SOPORTE_TECNICO_GENERAL,Soporte tecnico general
+no puedo entrar a la aplicacion,SOPORTE_TECNICO_GENERAL,Soporte tecnico general
+se bloqueo mi usuario de plataforma,SOPORTE_TECNICO_GENERAL,Soporte tecnico general
+el equipo esta fallando y necesito ayuda,SOPORTE_TECNICO_GENERAL,Soporte tecnico general
