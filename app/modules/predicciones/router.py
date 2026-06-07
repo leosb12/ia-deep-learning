@@ -3,15 +3,15 @@ from fastapi.responses import FileResponse
 from typing import Dict, Any
 import os
 
-from app.predicciones.config import settings
-from app.predicciones.schemas import DatasetRequest, PredictionRequest, PredictionResponse, ExplainRequest
-from app.predicciones.services.synthetic_dataset_service import generate_synthetic_dataset
-from app.predicciones.services.dataset_storage_service import get_synthetic_dataset, combine_datasets, save_synthetic_dataset
-from app.predicciones.services.training_service import train_models
-from app.predicciones.services.prediction_service import predict
-from app.predicciones.services.explanation_service import get_explanation
-from app.predicciones.services.backend_client import get_politicas_reales
-from app.predicciones.services.local_simulator_service import generar_dataset_local
+from app.modules.predicciones.config import settings
+from app.modules.predicciones.schemas import DatasetRequest, PredictionRequest, PredictionResponse, ExplainRequest
+from app.modules.predicciones.services.synthetic_dataset_service import generate_synthetic_dataset
+from app.modules.predicciones.services.dataset_storage_service import get_synthetic_dataset, combine_datasets, save_synthetic_dataset
+from app.modules.predicciones.services.training_service import train_models
+from app.modules.predicciones.services.prediction_service import predict
+from app.modules.predicciones.services.explanation_service import get_explanation
+from app.modules.predicciones.services.backend_client import get_politicas_reales
+from app.modules.predicciones.services.local_simulator_service import generar_dataset_local
 
 router = APIRouter()
 

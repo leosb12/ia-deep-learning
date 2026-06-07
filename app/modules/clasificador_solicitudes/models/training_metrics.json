@@ -5,7 +5,7 @@
   "test_loss": 3.027878999710083,
   "cantidad_ejemplos": 535,
   "cantidad_clases": 38,
-  "fecha_entrenamiento": "2026-06-06T07:59:33.648330+00:00",
+  "fecha_entrenamiento": "2026-06-07T15:58:24.769674+00:00",
   "max_len": 24,
   "tamano_vocabulario": 473,
   "vocab_size": 5000,

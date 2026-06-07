@@ -3,7 +3,7 @@ import json
 import os
 import httpx
 from io import StringIO
-from app.predicciones.config import settings
+from app.modules.predicciones.config import settings
 import logging
 
 logger = logging.getLogger(__name__)

@@ -7,9 +7,9 @@ from tensorflow.keras.models import load_model
 from typing import Dict, Any
 import logging
 
-from app.predicciones.config import settings
-from app.predicciones.schemas import PredictionRequest
-from app.predicciones.services.preprocessing_service import preprocess_prediction_input
+from app.modules.predicciones.config import settings
+from app.modules.predicciones.schemas import PredictionRequest
+from app.modules.predicciones.services.preprocessing_service import preprocess_prediction_input
 
 logger = logging.getLogger(__name__)
 

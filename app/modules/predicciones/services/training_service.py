@@ -4,8 +4,8 @@ import json
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Input, Dense, Dropout
 import tensorflow as tf
-from app.predicciones.config import settings
-from app.predicciones.services.preprocessing_service import preprocess_training_data
+from app.modules.predicciones.config import settings
+from app.modules.predicciones.services.preprocessing_service import preprocess_training_data
 import logging
 
 logger = logging.getLogger(__name__)
@@ -25,6 +25,14 @@ def train_models():
     
     models_info = {}
     os.makedirs(settings.MODEL_DIR, exist_ok=True)
+    
+    folder_map = {
+        "cuelloBotellaLabel": "predictor_cuellos_botella",
+        "rutaRecomendadaLabel": "predictor_mejor_ruta",
+        "prioridadRecomendadaLabel": "predictor_prioridad",
+        "anomaliaLabel": "predictor_anomalias",
+        "riesgoDemoraLabel": "predictor_riesgo_demora"
+    }
     
     for label_name, y_data in y_dict.items():
         num_classes = len(label_encoders[label_name].classes_)
@@ -57,13 +65,6 @@ def train_models():
         logger.info(f"Entrenando modelo para {label_name} con {num_classes} clases.")
         model.fit(X, y_train, epochs=20, batch_size=32, verbose=0)
         
-                folder_map = {
-            "cuelloBotellaLabel": "predictor_cuellos_botella",
-            "rutaRecomendadaLabel": "predictor_mejor_ruta",
-            "prioridadRecomendadaLabel": "predictor_prioridad",
-            "anomaliaLabel": "predictor_anomalias",
-            "riesgoDemoraLabel": "predictor_riesgo_demora"
-        }
         folder_name = folder_map.get(label_name, "")
         folder_path = os.path.join(settings.MODEL_DIR, folder_name)
         os.makedirs(folder_path, exist_ok=True)

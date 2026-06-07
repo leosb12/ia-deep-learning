@@ -3,7 +3,7 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder
 from typing import Dict, Any
 import pickle
 import os
-from app.predicciones.config import settings
+from app.modules.predicciones.config import settings
 
 def preprocess_training_data(df: pd.DataFrame):
     # Categorical and numerical columns

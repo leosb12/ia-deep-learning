@@ -1,4 +1,4 @@
-﻿# Byte-compiled / optimized / DLL files
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.pyc
 *.pyo
@@ -134,11 +134,11 @@ $RECYCLE.BIN/
 !.env.example
 
 # Custom Application Data (Datasets, Models, Logs)
-app/predicciones/datasets/*.csv
-app/predicciones/datasets/*.json
-app/predicciones/models/*.keras
-app/predicciones/models/*.pkl
-app/predicciones/models/*.json
+app/modules/*/datasets/*.csv
+app/modules/*/datasets/*.json
+app/modules/*/models/*.keras
+app/modules/*/models/*.pkl
+app/modules/*/models/*.json
 predict_call.log
 *.log
 

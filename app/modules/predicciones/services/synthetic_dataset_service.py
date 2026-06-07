@@ -1,8 +1,8 @@
 import logging
-from app.predicciones.schemas import DatasetRequest
-from app.predicciones.services.backend_client import get_politicas_reales
-from app.predicciones.services.deepseek_client import generar_escenarios_deepseek
-from app.predicciones.services.dataset_storage_service import save_synthetic_dataset
+from app.modules.predicciones.schemas import DatasetRequest
+from app.modules.predicciones.services.backend_client import get_politicas_reales
+from app.modules.predicciones.services.deepseek_client import generar_escenarios_deepseek
+from app.modules.predicciones.services.dataset_storage_service import save_synthetic_dataset
 
 logger = logging.getLogger(__name__)
 

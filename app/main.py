@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from app.modules.clasificador_solicitudes.router import router as router_clasificador_solicitudes
 from app.shared.config import settings
 from app.shared.health_router import router as health_router
-from app.predicciones.router import router as router_predicciones
+from app.modules.predicciones.router import router as router_predicciones
 
 
 def create_app() -> FastAPI:
@@ -15,6 +15,10 @@ def create_app() -> FastAPI:
     app.include_router(health_router)
     app.include_router(router_clasificador_solicitudes)
     app.include_router(router_predicciones, prefix="/api/predicciones", tags=["Predicciones"])
+
+    # Import the new router
+    from app.modules.reportes_dinamicos.router import router as router_reportes
+    app.include_router(router_reportes)
 
     return app
 

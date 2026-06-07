@@ -2,8 +2,8 @@ import httpx
 import json
 import logging
 from typing import List, Dict, Any
-from app.predicciones.config import settings
-from app.predicciones.schemas import SyntheticScenario, DeepSeekResponse
+from app.modules.predicciones.config import settings
+from app.modules.predicciones.schemas import SyntheticScenario, DeepSeekResponse
 
 logger = logging.getLogger(__name__)
 

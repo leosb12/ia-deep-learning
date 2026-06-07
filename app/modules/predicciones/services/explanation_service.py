@@ -1,5 +1,5 @@
-from app.predicciones.schemas import ExplainRequest
-from app.predicciones.services.deepseek_client import explicar_prediccion
+from app.modules.predicciones.schemas import ExplainRequest
+from app.modules.predicciones.services.deepseek_client import explicar_prediccion
 
 async def get_explanation(req: ExplainRequest) -> dict:
     explanation_text = await explicar_prediccion(req.prediccion.model_dump())

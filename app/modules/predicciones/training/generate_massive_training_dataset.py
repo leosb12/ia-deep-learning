@@ -2,8 +2,8 @@ import random
 import uuid
 import logging
 import asyncio
-from app.predicciones.services.backend_client import get_politicas_reales
-from app.predicciones.services.dataset_storage_service import save_synthetic_dataset
+from app.modules.predicciones.services.backend_client import get_politicas_reales
+from app.modules.predicciones.services.dataset_storage_service import save_synthetic_dataset
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

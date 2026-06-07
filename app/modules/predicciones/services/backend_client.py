@@ -1,6 +1,6 @@
 import httpx
 from typing import List, Dict, Any
-from app.predicciones.config import settings
+from app.modules.predicciones.config import settings
 import logging
 
 logger = logging.getLogger(__name__)
