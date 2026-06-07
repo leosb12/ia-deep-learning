@@ -1,4 +1,4 @@
-# Byte-compiled / optimized / DLL files
+﻿# Byte-compiled / optimized / DLL files
 __pycache__/
 *.pyc
 *.pyo
@@ -132,3 +132,22 @@ $RECYCLE.BIN/
 .env
 .env.*
 !.env.example
+
+# Custom Application Data (Datasets, Models, Logs)
+app/predicciones/datasets/*.csv
+app/predicciones/datasets/*.json
+app/predicciones/models/*.keras
+app/predicciones/models/*.pkl
+app/predicciones/models/*.json
+predict_call.log
+*.log
+
+# Temporary debugging scripts created during session
+test_mongo.py
+test_spring.py
+test_predict.py
+test_local.py
+test_graph.py
+patch_predict.py
+patch_router.py
+test_pol.py

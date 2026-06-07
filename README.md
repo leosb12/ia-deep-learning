@@ -62,3 +62,39 @@ Spring Boot tambien puede integrarse directamente contra este microservicio usan
 docker build -t ia-deep-learning-service .
 docker run --rm -p 8010:8010 ia-deep-learning-service
 ```
+
+## Módulo de Predicciones
+Este módulo permite generar datasets sintéticos realistas de procesos BPM usando DeepSeek y entrenar modelos Deep Learning con TensorFlow para clasificar demoras, cuellos de botella y rutas recomendadas.
+
+**Crear entorno:**
+`python -m venv venv`
+
+**Activar en Windows:**
+`.\venv\Scripts\activate`
+
+**Instalar:**
+`pip install -r requirements.txt`
+
+**Levantar servicio:**
+`uvicorn app.main:app --reload --port 8010`
+
+**Probar:**
+`GET http://localhost:8010/api/predicciones/health`
+
+**Generar dataset con DeepSeek:**
+`POST http://localhost:8010/api/predicciones/dataset/generar-deepseek`
+
+**Ver dataset:**
+`GET http://localhost:8010/api/predicciones/dataset/sintetico`
+
+**Exportar CSV:**
+`GET http://localhost:8010/api/predicciones/dataset/sintetico/export/csv`
+
+**Combinar dataset:**
+`POST http://localhost:8010/api/predicciones/dataset/combinar`
+
+**Entrenar:**
+`POST http://localhost:8010/api/predicciones/train`
+
+**Predecir:**
+`POST http://localhost:8010/api/predicciones/predict`
