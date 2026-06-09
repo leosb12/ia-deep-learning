@@ -257,8 +257,10 @@ def build_prompt_asistencia_extendida(
         f"- Estados reales: {json.dumps(estados, ensure_ascii=False)}\n"
         f"- Nombres de nodos reales: {json.dumps(nodos, ensure_ascii=False)}\n\n"
         f"REGLAS ESTRICTAS DE FECHAS (MUY IMPORTANTE):\n"
-        f"1. Cualquier fecha de creación o inicio (creacion, inicio, fechaCreacion, etc.) DEBE estar entre el 1 de mayo de 2026 y el 8 de junio de 2026. Nada puede haberse creado o iniciado antes del 1 de mayo de 2026.\n"
-        f"2. Cualquier fecha de finalización, cierre o completado DEBE ser como máximo el 8 de junio de 2026, y por supuesto debe ser lógica respecto a su fecha de inicio.\n\n"
+        f"1. Cualquier fecha de creación, inicio o cualquier otra fecha DEBE estar estrictamente en el rango del 15 de abril de 2026 al 11 de junio de 2026. Ninguna fecha puede ser anterior al 15 de abril de 2026 ni posterior al 11 de junio de 2026.\n"
+        f"2. Cualquier fecha de finalización, cierre o completado debe ser lógica respecto a su fecha de inicio y como máximo el 11 de junio de 2026.\n\n"
+        f"REGLAS ESTRICTAS DE CANTIDADES (MUY IMPORTANTE):\n"
+        f"1. Para cualquier dato de cantidad, total de trámites iniciados, tareas realizadas o similar, NUNCA uses miles. Genera valores numéricos pequeños y realistas con un tope máximo de 200 en total.\n\n"
         f"Recuerda: Devolver únicamente el JSON válido estructurado como se solicitó."
     )
     return [

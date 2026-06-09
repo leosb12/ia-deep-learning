@@ -74,6 +74,10 @@ Reglas:
   - Para kpi: "labels" debe contener el nombre de la métrica (ej. ["Total"]), "values" debe contener un único valor numérico (ej. [150]). "columns" y "rows" vacíos.
   - Para gráficos (bar, pie, doughnut, line, area): "labels" debe contener las categorías (e.g. nombres reales de políticas o nombres reales de usuarios), "values" debe contener los valores correspondientes. "columns" y "rows" vacíos.
   - Para table o matrix: "columns" debe tener la lista de nombres de columnas. "rows" debe tener la lista de filas, donde cada fila es una lista de valores en el mismo orden que las columnas. "labels" y "values" vacíos.
+- REGLAS DE FECHAS (MUY IMPORTANTE):
+  - Cualquier fecha de inicio, creación, finalización o registro en los datos simulados DEBE estar estrictamente en el rango del 15 de abril de 2026 al 11 de junio de 2026. Ninguna fecha puede ser anterior al 15 de abril de 2026 ni posterior al 11 de junio de 2026.
+- REGLAS DE CANTIDADES (MUY IMPORTANTE):
+  - Para cualquier dato de cantidad, total de trámites iniciados, tareas realizadas o similar, NUNCA uses miles. Genera valores numéricos pequeños y realistas con un tope máximo de 200 en total.
 - Genera datos simulados lógicos y coherentes que representen fielmente la solicitud.
 - Devuelve únicamente JSON válido. Sin markdown, sin explicaciones.
 """
