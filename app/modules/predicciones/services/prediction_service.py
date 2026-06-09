@@ -14,7 +14,22 @@ from app.modules.predicciones.services.preprocessing_service import preprocess_p
 logger = logging.getLogger(__name__)
 
 async def predict(req: PredictionRequest) -> Dict[str, Any]:
-    X = preprocess_prediction_input(req.model_dump())
+    # Normalizar campos Optional que puedan llegar como None desde Java
+    data = req.model_dump()
+    data["politicaId"] = data.get("politicaId") or ""
+    data["nombrePolitica"] = data.get("nombrePolitica") or ""
+    data["prioridadActual"] = data.get("prioridadActual") or "NORMAL"
+    data["rutaEjecutadaCodificada"] = data.get("rutaEjecutadaCodificada") or ""
+    data["rutaEjecutadaLegible"] = data.get("rutaEjecutadaLegible") or ""
+    data["carrilesVisitados"] = data.get("carrilesVisitados") or ""
+    data["actividadesVisitadas"] = data.get("actividadesVisitadas") or ""
+    for int_field in ["cantidadObservaciones","cantidadNodos","cantidadDecisiones",
+                      "cantidadForks","cantidadJoins","cantidadRetornos","cantidadReprocesos",
+                      "cantidadDocumentos","cantidadFuncionariosInvolucrados"]:
+        data[int_field] = data.get(int_field) or 0
+    data["duracionPromedioHistorica"] = data.get("duracionPromedioHistorica") or 0.0
+
+    X = preprocess_prediction_input(data)
     
     metadata_path = os.path.join(settings.MODEL_DIR, "training_metadata.json")
     if not os.path.exists(metadata_path):

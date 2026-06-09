@@ -9,16 +9,20 @@ from app.modules.predicciones.router import router as router_predicciones
 def create_app() -> FastAPI:
     app = FastAPI(
         title=settings.service_name,
-        version="1.0.0",
-        description="Servicio de modelos deep learning propios para casos de uso de IA.",
+        version="2.0.0",
+        description="Servicio de modelos deep learning propios para casos de uso de IA: predicciones, reportes inteligentes y asistente de datos.",
     )
     app.include_router(health_router)
     app.include_router(router_clasificador_solicitudes)
     app.include_router(router_predicciones, prefix="/api/predicciones", tags=["Predicciones"])
 
-    # Import the new router
+    # Motor Deep Learning - Reportes Inteligentes
     from app.modules.reportes_dinamicos.router import router as router_reportes
+    from app.modules.reportes_dinamicos.router import router_asistente
+    from app.modules.reportes_visuales.routes import router as router_reportes_visuales
     app.include_router(router_reportes)
+    app.include_router(router_asistente)
+    app.include_router(router_reportes_visuales)
 
     return app
 

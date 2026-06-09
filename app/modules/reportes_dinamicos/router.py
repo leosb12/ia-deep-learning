@@ -1,206 +1,262 @@
-from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
+"""
+Router del Motor Deep Learning de Reportes Inteligentes y Asistente de Datos.
+
+Endpoints:
+  - POST /api/ia/reportes/interpretar       → Interpretar consulta libre a plan de reporte
+  - POST /api/ia/asistente-datos/preguntar   → Preguntar al asistente de datos
+  - POST /api/ia/asistente-datos/planificar  → Generar plan de consulta
+  - GET  /api/ia/reportes/catalogo           → Catálogo de entidades permitidas
+  - GET  /api/ia/reportes/motor/status       → Estado del motor IA
+  - POST /api/ia/reportes/transcribir        → Stub para transcripción de audio
+  - POST /api/ia/reportes/respuesta-natural  → Generar respuesta natural con datos
+
+El Motor IA solo interpreta. Nunca accede a bases de datos.
+"""
+from fastapi import APIRouter, HTTPException, Request
 from typing import Optional, List, Dict, Any
-import numpy as np
-import pickle
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-import json
-import os
-import re
-from pathlib import Path
+import logging
+
+from app.modules.reportes_dinamicos.schemas import (
+    ReporteRequest, ReporteResponse, 
+    AsistenteDatosRequest, AsistenteDatosResponse, PlanConsulta,
+    TranscripcionRequest, CatalogoResponse, MotorTipo,
+    AsistenciaExtendidaRequest, AsistenciaExtendidaResponse
+)
+from app.modules.reportes_dinamicos.prompt_builder import build_prompt_asistencia_extendida
+from app.modules.reportes_dinamicos.interpretador_semantico import (
+    interpretar_reporte, procesar_pregunta_asistente, generar_respuesta_natural
+)
+from app.modules.reportes_dinamicos.catalogo_reportes import get_catalogo_completo, get_catalogo_remoto, build_catalogo_from_remote
+from app.modules.reportes_dinamicos.motor_ia_client import motor_ia_client
+from app.modules.reportes_dinamicos.config import reportes_settings
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/ia/reportes", tags=["Reportes Inteligentes"])
+router_asistente = APIRouter(prefix="/api/ia/asistente-datos", tags=["Asistente de Datos"])
 
-class ReporteRequest(BaseModel):
-    texto: str
-    usuarioId: str
-    rol: str
 
-class Metrica(BaseModel):
-    operacion: str
-    campo: str
-    alias: str
-
-class Filtro(BaseModel):
-    campo: str
-    operador: str
-    valor: Optional[Any] = None
-
-class Ordenamiento(BaseModel):
-    campo: str
-    direccion: str
-
-class ReporteResponse(BaseModel):
-    titulo: str = "Reporte dinámico"
-    descripcion: str = "Descripción del reporte solicitado"
-    intencionDetectada: str = "ambiguo"
-    entidadPrincipal: Optional[str] = None
-    campos: List[str] = []
-    metricas: List[Metrica] = []
-    filtros: List[Filtro] = []
-    agrupaciones: List[str] = []
-    ordenamiento: List[Ordenamiento] = []
-    limite: int = 100
-    formatoSalida: str = "pantalla"
-    visualizacion: str = "tabla"
-    requiereAclaracion: bool = False
-    preguntaAclaratoria: Optional[str] = None
-    confianza: float = 0.0
-
-class TranscripcionRequest(BaseModel):
-    # This would take audio file bytes, but keeping it simple for now based on instructions
-    audio_base64: str
-
-# Paths
-BASE_DIR = Path(__file__).resolve().parent
-MODELS_DIR = BASE_DIR / "models"
-MODEL_PATH = MODELS_DIR / "modelo_reportes.keras"
-TOKENIZER_PATH = MODELS_DIR / "tokenizer.pkl"
-ENCODERS_PATH = MODELS_DIR / "label_encoders.pkl"
-
-model = None
-tokenizer = None
-le_intent = None
-le_format = None
-
-def load_resources():
-    global model, tokenizer, le_intent, le_format
-    if model is None and MODEL_PATH.exists():
-        model = load_model(str(MODEL_PATH))
-        with open(TOKENIZER_PATH, 'rb') as handle:
-            tokenizer = pickle.load(handle)
-        with open(ENCODERS_PATH, 'rb') as handle:
-            encoders = pickle.load(handle)
-            le_intent = encoders['intent']
-            le_format = encoders['format']
-
-# Dictionaries representing the business logic mappings
-INTENT_MAPPINGS = {
-    "ranking_politicas_mas_utilizadas": {
-        "entidadPrincipal": "instancias_politica",
-        "metricas": [{"operacion": "count", "campo": "id", "alias": "cantidadTramites"}],
-        "agrupaciones": ["politicaNombre"],
-        "ordenamiento": [{"campo": "cantidadTramites", "direccion": "desc"}],
-        "visualizacion": "grafico_barras"
-    },
-    "ranking_clientes_por_tramites": {
-        "entidadPrincipal": "instancias_politica",
-        "metricas": [{"operacion": "count", "campo": "id", "alias": "cantidadTramites"}],
-        "agrupaciones": ["creadaPor"],
-        "ordenamiento": [{"campo": "cantidadTramites", "direccion": "desc"}],
-        "visualizacion": "tabla"
-    },
-    "tramites_por_estado_departamento": {
-        "entidadPrincipal": "instancias_politica",
-        "metricas": [{"operacion": "count", "campo": "id", "alias": "cantidadTramites"}],
-        "agrupaciones": ["estadoInstancia", "departamentoId"],
-        "ordenamiento": [{"campo": "cantidadTramites", "direccion": "desc"}],
-        "visualizacion": "grafico_pie"
-    },
-    "pagos_por_politica": {
-        "entidadPrincipal": "pagos",
-        "metricas": [{"operacion": "sum", "campo": "monto", "alias": "totalPagos"}],
-        "agrupaciones": ["politicaId"],
-        "ordenamiento": [{"campo": "totalPagos", "direccion": "desc"}],
-        "visualizacion": "tabla"
-    },
-    "tareas_pendientes_funcionario": {
-        "entidadPrincipal": "tareas_actividad",
-        "metricas": [{"operacion": "count", "campo": "id", "alias": "tareasPendientes"}],
-        "agrupaciones": ["responsableId"],
-        "ordenamiento": [{"campo": "tareasPendientes", "direccion": "desc"}],
-        "visualizacion": "tabla"
-    }
-}
-
-def extract_filters(texto: str) -> List[dict]:
-    filtros = []
-    texto = texto.lower()
-    
-    # Tiempos
-    if "este mes" in texto:
-        filtros.append({"campo": "fechaCreacion", "operador": "mes_actual", "valor": None})
-    elif "este año" in texto or "este ano" in texto:
-        filtros.append({"campo": "fechaCreacion", "operador": "anio_actual", "valor": None})
-    elif "ultimos 7 dias" in texto:
-        filtros.append({"campo": "fechaCreacion", "operador": "ultimos_dias", "valor": 7})
-    elif "ultimos 30 dias" in texto:
-        filtros.append({"campo": "fechaCreacion", "operador": "ultimos_dias", "valor": 30})
-    elif "ultimos 3 meses" in texto:
-        filtros.append({"campo": "fechaCreacion", "operador": "ultimos_meses", "valor": 3})
-    
-    # Estados
-    if "pendientes" in texto:
-        filtros.append({"campo": "estadoInstancia", "operador": "=", "valor": "EN_CURSO"})
-    elif "finalizados" in texto:
-        filtros.append({"campo": "estadoInstancia", "operador": "=", "valor": "COMPLETADO"})
-    elif "rechazados" in texto:
-        filtros.append({"campo": "estadoInstancia", "operador": "=", "valor": "RECHAZADO"})
-        
-    return filtros
+# ============================================================
+# REPORTES INTELIGENTES
+# ============================================================
 
 @router.post("/interpretar", response_model=ReporteResponse)
-async def interpretar_reporte(req: ReporteRequest):
-    load_resources()
-    if model is None:
-        raise HTTPException(status_code=500, detail="El modelo no está entrenado ni disponible.")
-
-    # Preprocesamiento
-    texto = req.texto.lower().strip()
-    seq = tokenizer.texts_to_sequences([texto])
-    padded = pad_sequences(seq, maxlen=30, padding='post', truncating='post')
-
-    # Predicción
-    preds = model.predict(padded)
-    pred_intent = np.argmax(preds[0], axis=-1)[0]
-    pred_format = np.argmax(preds[1], axis=-1)[0]
-    pred_aclaracion = preds[2][0][0]
-
-    intent_label = le_intent.inverse_transform([pred_intent])[0]
-    format_label = le_format.inverse_transform([pred_format])[0]
-    requiere_aclaracion = bool(pred_aclaracion > 0.5)
-
-    confianza_intent = float(np.max(preds[0][0]))
-
-    if intent_label == "ambiguo" or requiere_aclaracion:
-        return ReporteResponse(
-            requiereAclaracion=True,
-            preguntaAclaratoria="¿Podrías dar más detalles sobre lo que deseas analizar? (Ej. agrupado por cliente, política, etc.)",
-            confianza=confianza_intent
-        )
-
-    # Extraer de las reglas
-    mapping = INTENT_MAPPINGS.get(intent_label, {})
-    if not mapping:
-        return ReporteResponse(
-            requiereAclaracion=True,
-            preguntaAclaratoria="No entiendo la intención del reporte.",
-            confianza=confianza_intent
-        )
-
-    filtros = extract_filters(texto)
+async def interpretar(req: ReporteRequest):
+    """
+    Interpreta una consulta en lenguaje natural y genera un plan de reporte estructurado.
     
-    # Construir respuesta
-    response = ReporteResponse(
-        titulo="Reporte Dinámico Generado",
-        descripcion=f"Interpretación de: '{req.texto}'",
-        intencionDetectada=intent_label,
-        entidadPrincipal=mapping.get("entidadPrincipal"),
-        metricas=[Metrica(**m) for m in mapping.get("metricas", [])],
-        agrupaciones=mapping.get("agrupaciones", []),
-        ordenamiento=[Ordenamiento(**o) for o in mapping.get("ordenamiento", [])],
-        filtros=[Filtro(**f) for f in filtros],
-        formatoSalida=format_label,
-        visualizacion=mapping.get("visualizacion", "tabla"),
-        confianza=confianza_intent,
-        requiereAclaracion=False
-    )
+    Flujo:
+    1. Motor IA Avanzado (si está configurado)
+    2. Motor Interno (modelo Keras propio)  
+    3. Fallback controlado
+    
+    La IA solo genera el plan. El backend Spring Boot valida y ejecuta la consulta.
+    """
+    if not req.texto or not req.texto.strip():
+        raise HTTPException(status_code=400, detail="El texto de la consulta no puede estar vacío.")
+    
+    logger.info(f"== NUEVA SOLICITUD DE INTERPRETACIÓN ==")
+    logger.info(f"Texto recibido: '{req.texto}' (rol={req.rol}, usuario={req.usuarioId})")
+    
+    try:
+        resultado = await interpretar_reporte(req.texto)
+        logger.info(f"Resultado final -> motor: {resultado.motor}, intención: {resultado.intencionDetectada}, confianza: {resultado.confianza:.2f}")
+        return resultado
+    except Exception as e:
+        logger.error(f"Error inesperado interpretando reporte: {e}")
+        raise HTTPException(status_code=500, detail="Error interno del Motor IA al interpretar la solicitud.")
 
-    return response
+
+@router.post("/asistencia-extendida", response_model=AsistenciaExtendidaResponse)
+async def asistencia_extendida(req: AsistenciaExtendidaRequest):
+    """
+    Genera una vista asistida (IA+) cuando el motor real de reportes falla o no tiene resultados.
+    """
+    logger.info("== SOLICITUD DE ASISTENCIA EXTENDIDA (IA+) Recibida ==")
+    try:
+        messages = build_prompt_asistencia_extendida(
+            pregunta_original=req.preguntaOriginal,
+            columnas_esperadas=req.columnasEsperadas,
+            diagnostico=req.diagnosticoMotorReal or "No se pudo completar la consulta real.",
+            datos_reales=req.datosRealesDisponibles or [],
+            datos_previos=req.datosSimuladosPrevios or [],
+            usuarios=req.usuariosReales or [],
+            funcionarios=req.funcionariosReales or [],
+            administradores=req.administradoresReales or [],
+            politicas=req.politicasReales or [],
+            departamentos=req.departamentosReales or [],
+            estados=req.estadosReales or [],
+            nodos=req.nombresNodosReales or []
+        )
+        resultado = await motor_ia_client.interpretar(messages)
+        if not resultado:
+            raise HTTPException(status_code=500, detail="El motor IA no devolvió ningún resultado.")
+        
+        columnas = resultado.get("columnas", req.columnasEsperadas)
+        filas = resultado.get("filas", [])
+        
+        for fila in filas:
+            if "_modo" not in fila:
+                fila["_modo"] = "IA_PLUS"
+            if "_origen" not in fila:
+                fila["_origen"] = "asistido"
+            if "_camposEstimados" not in fila:
+                fila["_camposEstimados"] = [c for c in columnas if c not in ["politicaNombre", "responsableNombre", "usuarioNombre", "departamentoNombre", "funcionarioNombre", "nombre", "correo", "codigoTramite", "estadoInstancia", "estado"]]
+                
+        return AsistenciaExtendidaResponse(
+            columnas=columnas,
+            filas=filas,
+            asistido=True
+        )
+    except Exception as e:
+        logger.error(f"Error en asistencia extendida: {e}")
+        raise HTTPException(status_code=500, detail=f"Error al generar asistencia extendida: {str(e)}")
+
+
+@router.get("/catalogo", response_model=CatalogoResponse)
+async def get_catalogo():
+    """
+    Retorna el catálogo completo de entidades, campos y operaciones permitidas.
+    Solo se consultan entidades y campos de este catálogo.
+    """
+    catalogo = get_catalogo_completo()
+    return CatalogoResponse(**catalogo)
+
+
+@router.get("/motor/status")
+async def motor_status():
+    """
+    Retorna el estado actual del Motor IA de Reportes Inteligentes.
+    Indica qué motores están disponibles.
+    """
+    motor_avanzado_disponible = motor_ia_client.is_available()
+    
+    # Verificar motor interno
+    motor_interno_disponible = False
+    try:
+        from pathlib import Path
+        model_path = Path(__file__).resolve().parent / "models" / "modelo_reportes.keras"
+        motor_interno_disponible = model_path.exists()
+    except Exception:
+        pass
+    
+    return {
+        "motorIaAvanzado": {
+            "disponible": motor_avanzado_disponible,
+            "modelo": motor_ia_client.model if motor_avanzado_disponible else None
+        },
+        "motorInterno": {
+            "disponible": motor_interno_disponible,
+            "tipo": "Keras BiLSTM Multi-Output"
+        },
+        "motorFallback": {
+            "disponible": True,
+            "tipo": "Heurístico con catálogo estático"
+        },
+        "motorPrincipal": (
+            "MOTOR_IA_AVANZADO" if motor_avanzado_disponible
+            else "MOTOR_INTERNO" if motor_interno_disponible
+            else "MOTOR_FALLBACK"
+        )
+    }
+
+@router.get("/diagnostico")
+async def get_diagnostico(request: Request):
+    """
+    Endpoint de diagnóstico para el microservicio IA.
+    """
+    remote_data = get_catalogo_remoto()
+    _, _, _, origen = build_catalogo_from_remote(remote_data)
+    
+    motor_avanzado_disponible = motor_ia_client.is_available()
+    api_key_presente = bool(reportes_settings.ia_api_key and len(reportes_settings.ia_api_key) > 5)
+    
+    motor_interno_disponible = False
+    try:
+        from pathlib import Path
+        model_path = Path(__file__).resolve().parent / "models" / "modelo_reportes.keras"
+        motor_interno_disponible = model_path.exists()
+    except Exception:
+        pass
+
+    from app.modules.reportes_dinamicos.catalogo_reportes import BACKEND_REPORTES_CATALOGO_URL
+    return {
+        "servicio": "ia-reportes",
+        "catalogoOrigen": origen,
+        "catalogoDisponible": origen == "SPRING_BOOT",
+        "motorAvanzadoHabilitado": reportes_settings.ia_enabled,
+        "apiKeyPresente": api_key_presente,
+        "modeloConfigurado": reportes_settings.ia_model,
+        "backendCatalogoUrl": BACKEND_REPORTES_CATALOGO_URL,
+        "fallbackLocalDisponible": True,
+        "motorInternoDisponible": motor_interno_disponible
+    }
+
 
 @router.post("/transcribir")
 async def transcribir_audio(req: TranscripcionRequest):
-    # Endpoint stub para la transcripción solicitada en el requerimiento
-    # "Si no es viable implementar transcripción real ahora, dejar la estructura preparada"
-    return {"textoTranscrito": "ejemplo de texto transcrito"}
+    """
+    Stub para transcripción de audio.
+    La transcripción real se implementa en el frontend con Web Speech API.
+    """
+    return {"textoTranscrito": "Transcripción no implementada en backend. Use Web Speech API en el navegador."}
+
+
+@router.post("/respuesta-natural")
+async def respuesta_natural(
+    texto_original: str = "",
+    datos: List[Dict[str, Any]] = []
+):
+    """
+    Genera una respuesta en lenguaje natural basada en datos ya recuperados.
+    Se usa después de que Spring Boot ejecuta la consulta y obtiene resultados.
+    """
+    resultado = await generar_respuesta_natural(texto_original, datos)
+    return resultado
+
+
+# ============================================================
+# ASISTENTE DE DATOS
+# ============================================================
+
+@router_asistente.post("/preguntar")
+async def preguntar_asistente(req: AsistenteDatosRequest):
+    """
+    Procesa una pregunta libre del usuario sobre los datos del sistema.
+    Genera un plan de consulta que el backend Spring Boot debe ejecutar.
+    
+    La IA no accede a ninguna base de datos directamente.
+    Solo genera un plan estructurado validado contra el catálogo.
+    """
+    if not req.texto or not req.texto.strip():
+        raise HTTPException(status_code=400, detail="La pregunta no puede estar vacía.")
+    
+    logger.info(f"Asistente de datos: '{req.texto[:100]}...' (rol={req.rol})")
+    
+    try:
+        resultado = await procesar_pregunta_asistente(req.texto, req.contextoAdicional)
+        return resultado
+    except Exception as e:
+        logger.error(f"Error en asistente de datos: {e}")
+        raise HTTPException(status_code=500, detail="Error interno del Motor IA al procesar la pregunta.")
+
+
+@router_asistente.post("/planificar")
+async def planificar_consulta(req: AsistenteDatosRequest):
+    """
+    Genera un plan de consulta detallado sin ejecutarlo.
+    El backend Spring Boot valida el plan y luego lo ejecuta si es válido.
+    """
+    if not req.texto or not req.texto.strip():
+        raise HTTPException(status_code=400, detail="La pregunta no puede estar vacía.")
+    
+    resultado = await procesar_pregunta_asistente(req.texto, req.contextoAdicional)
+    return resultado
+
+
+@router_asistente.get("/catalogo")
+async def catalogo_asistente():
+    """Catálogo de fuentes de datos disponibles para el asistente."""
+    return get_catalogo_completo()
+
+import os

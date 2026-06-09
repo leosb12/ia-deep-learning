@@ -10,23 +10,23 @@ class DatasetRequest(BaseModel):
     incluirAnomalias: bool = True
 
 class PredictionRequest(BaseModel):
-    politicaId: str
-    nombrePolitica: str
-    cantidadObservaciones: int = 0
-    cantidadNodos: int = 0
-    cantidadDecisiones: int = 0
-    cantidadForks: int = 0
-    cantidadJoins: int = 0
-    cantidadRetornos: int = 0
-    cantidadReprocesos: int = 0
-    cantidadDocumentos: int = 0
-    cantidadFuncionariosInvolucrados: int = 0
-    duracionPromedioHistorica: float = 0.0
-    prioridadActual: str = "NORMAL"
-    rutaEjecutadaCodificada: str = ""
-    rutaEjecutadaLegible: str = ""
-    carrilesVisitados: str = ""
-    actividadesVisitadas: str = ""
+    politicaId: Optional[str] = ""
+    nombrePolitica: Optional[str] = ""
+    cantidadObservaciones: Optional[int] = 0
+    cantidadNodos: Optional[int] = 0
+    cantidadDecisiones: Optional[int] = 0
+    cantidadForks: Optional[int] = 0
+    cantidadJoins: Optional[int] = 0
+    cantidadRetornos: Optional[int] = 0
+    cantidadReprocesos: Optional[int] = 0
+    cantidadDocumentos: Optional[int] = 0
+    cantidadFuncionariosInvolucrados: Optional[int] = 0
+    duracionPromedioHistorica: Optional[float] = 0.0
+    prioridadActual: Optional[str] = "NORMAL"
+    rutaEjecutadaCodificada: Optional[str] = ""
+    rutaEjecutadaLegible: Optional[str] = ""
+    carrilesVisitados: Optional[str] = ""
+    actividadesVisitadas: Optional[str] = ""
     politicaEstructuraJson: Optional[str] = None
 
 class PredictionResponse(BaseModel):
