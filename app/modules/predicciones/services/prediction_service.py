@@ -3,7 +3,6 @@ import json
 import pickle
 import numpy as np
 import httpx
-from tensorflow.keras.models import load_model
 from typing import Dict, Any
 import logging
 
@@ -14,6 +13,7 @@ from app.modules.predicciones.services.preprocessing_service import preprocess_p
 logger = logging.getLogger(__name__)
 
 async def predict(req: PredictionRequest) -> Dict[str, Any]:
+    from tensorflow.keras.models import load_model
     # Normalizar campos Optional que puedan llegar como None desde Java
     data = req.model_dump()
     data["politicaId"] = data.get("politicaId") or ""

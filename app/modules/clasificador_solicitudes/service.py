@@ -277,7 +277,13 @@ class ClasificadorDinamicoService:
         self._model: Any | None = None
         self._deepseek_client = deepseek_client or DeepSeekPolicyAnalysisClient()
 
-    def clasificar(self, texto: str, politicas: list[Any], usar_deepseek: bool = False) -> dict[str, Any]:
+    def clasificar(
+        self,
+        texto: str,
+        politicas: list[Any],
+        usar_deepseek: bool = False,
+        nombre_documento: str | None = None,
+    ) -> dict[str, Any]:
         texto_limpio = texto.strip()
         if not texto_limpio:
             raise HTTPException(status_code=400, detail="El texto no puede estar vacio")
@@ -303,6 +309,10 @@ class ClasificadorDinamicoService:
 
         # 1. Pass 1: Rule-based extraction and ranking
         requisitos_detectados = extraer_requisitos_reglas(texto_limpio, politicas)
+        if nombre_documento:
+            requisitos_doc = extraer_requisitos_reglas(nombre_documento, politicas)
+            requisitos_detectados = list(set(requisitos_detectados).union(requisitos_doc))
+            
         resultado = calcular_ranking_politicas(politicas, similitudes, requisitos_detectados)
         resultados_calculados = resultado.pop("resultados_calculados")
 

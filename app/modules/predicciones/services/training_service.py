@@ -1,9 +1,6 @@
 import os
 import pandas as pd
 import json
-from tensorflow.keras.models import Model
-from tensorflow.keras.layers import Input, Dense, Dropout
-import tensorflow as tf
 from app.modules.predicciones.config import settings
 from app.modules.predicciones.services.preprocessing_service import preprocess_training_data
 import logging
@@ -11,6 +8,9 @@ import logging
 logger = logging.getLogger(__name__)
 
 def train_models():
+    from tensorflow.keras.models import Model
+    from tensorflow.keras.layers import Input, Dense, Dropout
+    import tensorflow as tf
     dataset_path = os.path.join(settings.DATASET_DIR, "training_dataset_final.csv")
     if not os.path.exists(dataset_path):
         raise ValueError("Dataset final no encontrado. Ejecuta /dataset/combinar primero.")

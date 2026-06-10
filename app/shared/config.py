@@ -49,5 +49,16 @@ class Settings(BaseModel):
     deepseek_max_policies: int = _env_int("DEEPSEEK_MAX_POLICIES", 8)
     deepseek_auto_confidence_threshold: float = _env_float("DEEPSEEK_AUTO_CONFIDENCE_THRESHOLD", 0.65)
 
+    # URL del backend — en Docker Compose usar nombre de servicio: http://backend:8080
+    # En local: http://localhost:8080
+    backend_base_url: str = os.getenv("BACKEND_BASE_URL", "http://localhost:8080")
+    backend_dataset_url: str = os.getenv(
+        "BACKEND_DATASET_URL",
+        os.getenv("BACKEND_BASE_URL", "http://localhost:8080") + "/api/deep-learning/dataset/rutas/export/csv",
+    )
+
+    model_dir: str = os.getenv("MODEL_DIR", "app/modules/predicciones/models")
+    dataset_dir: str = os.getenv("DATASET_DIR", "app/modules/predicciones/datasets")
+
 
 settings = Settings()

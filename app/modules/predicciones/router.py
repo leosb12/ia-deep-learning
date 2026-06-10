@@ -5,13 +5,6 @@ import os
 
 from app.modules.predicciones.config import settings
 from app.modules.predicciones.schemas import DatasetRequest, PredictionRequest, PredictionResponse, ExplainRequest
-from app.modules.predicciones.services.synthetic_dataset_service import generate_synthetic_dataset
-from app.modules.predicciones.services.dataset_storage_service import get_synthetic_dataset, combine_datasets, save_synthetic_dataset
-from app.modules.predicciones.services.training_service import train_models
-from app.modules.predicciones.services.prediction_service import predict
-from app.modules.predicciones.services.explanation_service import get_explanation
-from app.modules.predicciones.services.backend_client import get_politicas_reales
-from app.modules.predicciones.services.local_simulator_service import generar_dataset_local
 
 router = APIRouter()
 
@@ -25,6 +18,7 @@ async def health_check():
 
 @router.get("/politicas/backend")
 async def politicas_backend():
+    from app.modules.predicciones.services.backend_client import get_politicas_reales
     try:
         politicas = await get_politicas_reales()
         return {"politicas": politicas}
@@ -33,6 +27,7 @@ async def politicas_backend():
 
 @router.post("/dataset/generar-deepseek")
 async def generar_dataset(req: DatasetRequest):
+    from app.modules.predicciones.services.synthetic_dataset_service import generate_synthetic_dataset
     if not settings.DEEPSEEK_API_KEY:
         raise HTTPException(status_code=500, detail="DEEPSEEK_API_KEY no configurada")
     try:
@@ -47,6 +42,9 @@ async def generar_dataset_masivo_local(req: DatasetRequest):
     Genera miles de datos de entrenamiento en 1 segundo analizando 
     la estructura de la política y simulando los caminos localmente sin cobrar tokens.
     """
+    from app.modules.predicciones.services.backend_client import get_politicas_reales
+    from app.modules.predicciones.services.local_simulator_service import generar_dataset_local
+    from app.modules.predicciones.services.dataset_storage_service import save_synthetic_dataset
     try:
         politicas = await get_politicas_reales()
         todos = []
@@ -67,6 +65,7 @@ async def generar_dataset_masivo_local(req: DatasetRequest):
 
 @router.get("/dataset/sintetico")
 async def ver_dataset_sintetico(page: int = 1, size: int = 10):
+    from app.modules.predicciones.services.dataset_storage_service import get_synthetic_dataset
     data = get_synthetic_dataset(page, size)
     if data is None:
         raise HTTPException(status_code=404, detail="Dataset sintético no encontrado. Ejecuta /dataset/generar-deepseek primero.")
@@ -88,6 +87,7 @@ async def export_sintetico_json():
 
 @router.post("/dataset/combinar")
 async def endpoint_combine_datasets():
+    from app.modules.predicciones.services.dataset_storage_service import combine_datasets
     try:
         path = await combine_datasets()
         return {"message": "Datasets combinados exitosamente", "path": path}
@@ -115,6 +115,7 @@ async def export_final_csv():
 
 @router.post("/train")
 def train():
+    from app.modules.predicciones.services.training_service import train_models
     try:
         info = train_models()
         return {"message": "Entrenamiento completado", "models": info}
@@ -129,6 +130,7 @@ async def endpoint_predict(req: PredictionRequest):
     with open("predict_call.log", "a") as f:
         f.write(f"Call received for {req.politicaId}\nJSON:\n{req.politicaEstructuraJson}\n")
     try:
+        from app.modules.predicciones.services.prediction_service import predict
         return await predict(req)
     except Exception as e:
         with open("error_predict.log", "w") as f:
@@ -139,6 +141,7 @@ async def endpoint_predict(req: PredictionRequest):
 @router.post("/explicar")
 async def endpoint_explicar(req: ExplainRequest):
     try:
+        from app.modules.predicciones.services.explanation_service import get_explanation
         return await get_explanation(req)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

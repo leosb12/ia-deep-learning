@@ -101,6 +101,7 @@ class SolicitudClasificacionDinamica(BaseModel):
     texto: str = Field(..., min_length=1)
     politicas: list[PoliticaDinamica] = Field(..., min_length=1)
     usarDeepSeek: bool = False
+    nombreDocumento: str | None = None
 
     @field_validator("texto")
     @classmethod

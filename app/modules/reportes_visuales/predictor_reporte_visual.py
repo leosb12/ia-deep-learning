@@ -1,8 +1,6 @@
 import numpy as np
 import pickle
 from pathlib import Path
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-from tensorflow.keras.models import load_model
 
 BASE_DIR = Path(__file__).resolve().parent
 MODELS_DIR = BASE_DIR / "models"
@@ -30,6 +28,7 @@ class PredictorReporteVisual:
         try:
             if not self.model_path.exists():
                 return False
+            from tensorflow.keras.models import load_model
             self.model = load_model(str(self.model_path))
             with open(self.tokenizer_path, 'rb') as f:
                 self.tokenizer = pickle.load(f)
@@ -51,6 +50,7 @@ class PredictorReporteVisual:
         if not self.load():
             return {}
         try:
+            from tensorflow.keras.preprocessing.sequence import pad_sequences
             text = prompt.lower().strip()
             seq = self.tokenizer.texts_to_sequences([text])
             padded = pad_sequences(seq, maxlen=25, padding='post', truncating='post')

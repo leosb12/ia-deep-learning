@@ -50,5 +50,10 @@ async def clasificar_solicitud_dinamica(
     solicitud: SolicitudClasificacionDinamica,
     service: ClasificadorDinamicoService = Depends(obtener_clasificador_dinamico_service),
 ) -> RespuestaClasificacionDinamica:
-    resultado = service.clasificar(solicitud.texto, solicitud.politicas, solicitud.usarDeepSeek)
+    resultado = service.clasificar(
+        solicitud.texto,
+        solicitud.politicas,
+        solicitud.usarDeepSeek,
+        solicitud.nombreDocumento,
+    )
     return RespuestaClasificacionDinamica(**resultado)

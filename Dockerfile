@@ -12,4 +12,6 @@ COPY app ./app
 
 EXPOSE 8010
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8010"]
+# 1 worker para TensorFlow/Keras: evita duplicar la carga del modelo en memoria
+# Con 16 GiB en t3a.xlarge, 1 worker es suficiente y mas estable
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8010", "--workers", "1"]
