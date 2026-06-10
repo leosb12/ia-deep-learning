@@ -15,7 +15,7 @@ METRICAS_DISPONIBLES = [
     "politicas_mas_usadas", "politicas_por_estado", "tramites_por_estado", "tramites_por_mes",
     "tramites_por_departamento", "tramites_por_prioridad", "tramites_finalizados_por_funcionario",
     "promedio_tiempo_finalizacion", "pagos_por_estado", "pagos_por_politica", "total_tramites",
-    "total_politicas", "total_usuarios", "total_pagos"
+    "total_politicas", "total_usuarios", "total_pagos", "cuellos_botella"
 ]
 
 @router.post("/interpretar", response_model=ReporteVisualResponse)
@@ -183,6 +183,21 @@ Reglas:
     predictor_visual.load()
 
     for parte in partes:
+        # Si la parte menciona cuellos de botella, forzar la métrica cuellos_botella
+        if any(k in parte for k in ["cuello de botella", "cuellos de botella", "bottleneck"]):
+            bloques_detectados.append(BloqueReporteIntent(
+                tipo="table",
+                intencion="cuellos_botella",
+                titulo="Trámites con cuello de botella",
+                orden=orden,
+                entidadPrincipal="instancias_politica",
+                metrica="cuellos_botella",
+                limite=10,
+                filtros={}
+            ))
+            orden += 1
+            continue
+
         # Usar el predictor Keras para clasificar tipo de gráfico, intención, entidad y métrica
         pred = predictor_visual.predecir_bloque(parte)
         if pred:
