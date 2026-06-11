@@ -24,6 +24,12 @@ def create_app() -> FastAPI:
     app.include_router(router_asistente)
     app.include_router(router_reportes_visuales)
 
+    @app.on_event("startup")
+    async def startup_event():
+        import asyncio
+        from app.modules.predicciones.services.startup_training import auto_train_if_missing
+        asyncio.create_task(auto_train_if_missing())
+
     return app
 
 
