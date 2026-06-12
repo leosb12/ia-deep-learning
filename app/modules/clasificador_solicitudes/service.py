@@ -137,11 +137,19 @@ def extraer_requisitos_reglas(texto: str, politicas: list[Any]) -> list[str]:
             todos_requisitos[req.nombre] = req
 
     sinonimos = {
-        "codigoCliente": ["codigo de cliente", "codigo cliente", "cod cliente", "id cliente", "cliente"],
+        "codigoCliente": ["codigo de cliente", "codigo cliente", "cod cliente", "id cliente", "cliente", "identificador cliente", "nro cliente", "numero cliente"],
+        "codigo_cliente": ["codigo de cliente", "codigo cliente", "cod cliente", "id cliente", "cliente", "identificador cliente", "nro cliente", "numero cliente"],
+        "documentoIdentidad": ["documento de identidad", "documento identidad", "carnet", "carnet identidad", "ci", "cedula", "dni", "identidad", "cc"],
+        "documento_identidad": ["documento de identidad", "documento identidad", "carnet", "carnet identidad", "ci", "cedula", "dni", "identidad", "cc"],
         "cedula": ["cedula", "documento", "dni", "cc", "identificacion", "ci"],
         "nombre": ["nombre", "usuario", "nombre completo", "me llamo"],
         "numeroFactura": ["factura", "numero de factura", "num factura", "nro factura", "factura nro"],
+        "numero_factura": ["factura", "numero de factura", "num factura", "nro factura", "factura nro"],
         "direccion": ["direccion", "domicilio", "residencia"],
+        "comprobanteDomicilio": ["comprobante de domicilio", "comprobante domicilio", "domicilio", "direccion", "factura luz", "factura agua", "recibo luz", "recibo agua", "servicio basico", "servicios basicos"],
+        "comprobante_domicilio": ["comprobante de domicilio", "comprobante domicilio", "domicilio", "direccion", "factura luz", "factura agua", "recibo luz", "recibo agua", "servicio basico", "servicios basicos"],
+        "comprobantePago": ["comprobante de pago", "comprobante pago", "recibo pago", "pago", "deposito", "transferencia"],
+        "comprobante_pago": ["comprobante de pago", "comprobante pago", "recibo pago", "pago", "deposito", "transferencia"],
         "planActual": ["plan actual", "mi plan", "plan que tengo"],
         "planDeseado": ["plan deseado", "plan nuevo", "plan que quiero", "plan a cambiar"]
     }
@@ -183,12 +191,15 @@ def calcular_ranking_politicas(
     politicas: list[Any],
     similitudes: np.ndarray,
     requisitos_detectados: list[str],
+    usar_solo_requisitos_iniciales: bool = False,
 ) -> dict[str, Any]:
     max_similitud = float(max(similitudes)) if len(similitudes) > 0 else 0.0
     tiene_intencion_clara = max_similitud >= 0.45
     tiene_requisitos = len(requisitos_detectados) > 0
 
-    if tiene_requisitos and tiene_intencion_clara:
+    if usar_solo_requisitos_iniciales:
+        origen = "REQUISITOS"
+    elif tiene_requisitos and tiene_intencion_clara:
         origen = "MIXTO"
     elif tiene_requisitos and not tiene_intencion_clara:
         origen = "REQUISITOS"
@@ -225,7 +236,7 @@ def calcular_ranking_politicas(
         })
 
     # Sort results
-    resultados_calculados.sort(key=lambda x: (x["scoreFinal"], x["scoreSemantico"]), reverse=True)
+    resultados_calculados.sort(key=lambda x: (x["scoreFinal"], 0.0 if usar_solo_requisitos_iniciales else x["scoreSemantico"]), reverse=True)
 
     mejor_resultado = resultados_calculados[0]
     confianza_final = mejor_resultado["scoreFinal"]
@@ -283,6 +294,7 @@ class ClasificadorDinamicoService:
         politicas: list[Any],
         usar_deepseek: bool = False,
         nombre_documento: str | None = None,
+        usar_solo_requisitos_iniciales: bool = False,
     ) -> dict[str, Any]:
         texto_limpio = texto.strip()
         if not texto_limpio:
@@ -313,7 +325,7 @@ class ClasificadorDinamicoService:
             requisitos_doc = extraer_requisitos_reglas(nombre_documento, politicas)
             requisitos_detectados = list(set(requisitos_detectados).union(requisitos_doc))
             
-        resultado = calcular_ranking_politicas(politicas, similitudes, requisitos_detectados)
+        resultado = calcular_ranking_politicas(politicas, similitudes, requisitos_detectados, usar_solo_requisitos_iniciales)
         resultados_calculados = resultado.pop("resultados_calculados")
 
         # 2. Pass 2: DeepSeek analysis
@@ -336,7 +348,7 @@ class ClasificadorDinamicoService:
 
                 if requisitos_ds_names:
                     requisitos_detectados_actualizados = list(set(requisitos_detectados).union(requisitos_ds_names))
-                    resultado_actualizado = calcular_ranking_politicas(politicas, similitudes, requisitos_detectados_actualizados)
+                    resultado_actualizado = calcular_ranking_politicas(politicas, similitudes, requisitos_detectados_actualizados, usar_solo_requisitos_iniciales)
                     resultado_actualizado["analisisDeepSeek"] = analisis_deepseek
                     resultado = resultado_actualizado
                     resultado.pop("resultados_calculados", None)
