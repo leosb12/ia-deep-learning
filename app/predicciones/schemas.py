@@ -28,6 +28,7 @@ class PredictionRequest(BaseModel):
     carrilesVisitados: Optional[str] = ""
     actividadesVisitadas: Optional[str] = ""
     politicaEstructuraJson: Optional[str] = None
+    skipDeepSeek: Optional[bool] = False
 
 class PredictionResponse(BaseModel):
     riesgoDemora: str
